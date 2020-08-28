@@ -1,6 +1,4 @@
 file: intro
 sections:
-- file: Linux
-- file: Git
-- file: Markdown
-- file: Python
+- file: content.md
+- file: notebooks.ipynb
