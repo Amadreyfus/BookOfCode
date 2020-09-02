@@ -13,7 +13,12 @@ and easy to manage repository of commands and syntax with explanations.
 This will be a work in progress as I continuously add to this project
 and reorganize as my understanding of jupyter-book grows.
 
-For anyone else interested in creating a jupter-book of their own
+It is also an inherently selfish document in that I will only consider my frame
+of reference in populating and organizing it. As a result, it will be idiosyncratic
+in terms of its content and layout, although, hopefully, not egregiously so.
+
+
+For anyone else interested in creating their own jupter-book,
 instructions can be found at [https://beta.jupyterbook.org/intro.html][jb].
 
 [jb]: https://beta.jupyterbook.org/intro.html
@@ -25,4 +30,15 @@ instructions can be found at [https://beta.jupyterbook.org/intro.html][jb].
 - {ref}` Myst Markdown <MyST>`
 - {ref}` Git Commands <git>`
 - {ref}` Python 3 <python>`
+
+
+## Acknowledgements
+
+A big thank you to the [Executable Book Project](book)
+
+[book]: https://executablebooks.org/en/latest/
+
+
+
+
 

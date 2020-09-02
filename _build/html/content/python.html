@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Python &#8212; Book of Code</title>
+    <title>Python 3 &#8212; Book of Code</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -92,7 +92,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Python
+   Python 3
   </a>
  </li>
 </ul>
@@ -135,7 +135,10 @@
     
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="../_sources/content/python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../_sources/content/python.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -169,6 +172,23 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Amadreyfus/BookOfCode/master?urlpath=tree/content/python.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -177,7 +197,53 @@
             <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primitive-types-in-python">
+   Primitive Types in Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type-checking-operations">
+     Type Checking Operations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-mathematical-operations">
+     Basic Mathematical Operations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strings">
+     Strings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#collections">
+   Collections
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists">
+     Lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tuples">
+     Tuples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dictionaries">
+     Dictionaries
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -186,8 +252,187 @@
         
               <div>
                 
-  <div class="section" id="python">
-<span id="id1"></span><h1>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="python-3">
+<span id="python"></span><h1>Python 3<a class="headerlink" href="#python-3" title="Permalink to this headline">¶</a></h1>
+<br />
+<p><strong>Quick References to Page Contents</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#primitive"><span class="std std-ref">Primitive Types</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#type-check"><span class="std std-ref">Type Checking Operations</span></a></p></li>
+<li><p><a class="reference internal" href="#basic-math"><span class="std std-ref">Basic Mathematical Operations</span></a></p></li>
+<li><p><a class="reference internal" href="#strings"><span class="std std-ref">Strings</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#collections"><span class="std std-ref">Collections</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#lists"><span class="std std-ref">Lists</span></a></p></li>
+<li><p><a class="reference internal" href="#tuples"><span class="std std-ref">Tuples</span></a></p></li>
+<li><p><a class="reference internal" href="#dictionaries"><span class="std std-ref">Dictionaries</span></a></p></li>
+</ul>
+</li>
+</ul>
+<br />
+<div class="section" id="primitive-types-in-python">
+<span id="primitive"></span><h2>Primitive Types in Python<a class="headerlink" href="#primitive-types-in-python" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></code></p></td>
+<td><p>integers (i.e., whole numbers)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1.0</span></code></p></td>
+<td><p>floating-point numbers (i.e., real numbers)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">complex</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">+</span> <span class="pre">2j</span></code></p></td>
+<td><p>Complex numbers (i.e., numbers with real and imaginary part)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">True</span></code></p></td>
+<td><p>Boolean: True/False values</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">'abc'</span></code></p></td>
+<td><p>String: characters or text</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NoneType</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">None</span></code></p></td>
+<td><p>Special object indicating nulls</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="type-checking-operations">
+<span id="type-check"></span><h3>Type Checking Operations<a class="headerlink" href="#type-checking-operations" title="Permalink to this headline">¶</a></h3>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="o">&lt;</span><span class="nb">object</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns type of the object. Useful syntax below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">([])</span> <span class="ow">is</span> <span class="nb">list</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="o">&lt;</span><span class="nb">object</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns boolean value corresponding to truth of the statement</p></td>
+</tr>
+<tr class="row-even"><td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">object</span><span class="o">&gt;</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="o">&lt;</span><span class="nb">object</span><span class="o">&gt;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</td>
+<td><p>This is the preferred idiom for checking if an object is <code class="docutils literal notranslate"><span class="pre">None</span></code> type</p></td>
+</tr>
+</tbody>
+</table>
+<br />
+</div>
+<div class="section" id="basic-mathematical-operations">
+<span id="basic-math"></span><h3>Basic Mathematical Operations<a class="headerlink" href="#basic-mathematical-operations" title="Permalink to this headline">¶</a></h3>
+<p>These are sometimes called the ‘natural operators’</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code></p></td>
+<td><p>Addition</p></td>
+<td><p>Sum of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-</span> <span class="pre">b</span></code></p></td>
+<td><p>Subtraction</p></td>
+<td><p>Difference of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code></p></td>
+<td><p>Multiplication</p></td>
+<td><p>Product of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">/</span> <span class="pre">b</span></code></p></td>
+<td><p>True division</p></td>
+<td><p>Quotient of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">//</span> <span class="pre">b</span></code></p></td>
+<td><p>Floor division</p></td>
+<td><p>Quotient of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, removing any remainder</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code></p></td>
+<td><p>Modulus</p></td>
+<td><p>Integer remainder after division of <code class="docutils literal notranslate"><span class="pre">a</span></code> by <code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">**</span> <span class="pre">b</span></code></p></td>
+<td><p>Exponentiation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code> raised to the power of <code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-a</span></code></p></td>
+<td><p>Negation</p></td>
+<td><p>The negative of <code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+a</span></code></p></td>
+<td><p>Unary plus</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code> unchanged</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="strings">
+<span id="id1"></span><h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="collections">
+<span id="id2"></span><h2>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lists">
+<span id="id3"></span><h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="tuples">
+<span id="id4"></span><h3>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>Tuple</strong> is a read-only “immutable” fixed-length sequence of values</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tup</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;element at index i in tup is: </span><span class="si">{</span><span class="n">tup</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>element at index i in tup is: 1
+element at index i in tup is: a
+element at index i in tup is: None
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Immutability</strong> means that you cannot modify the object. Once set, it’s size and values are permanently fixed. So,
+in order to “change” the object, you must create a new one incorporating the old one.</p>
+</div>
+<div class="section" id="dictionaries">
+<span id="id5"></span><h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

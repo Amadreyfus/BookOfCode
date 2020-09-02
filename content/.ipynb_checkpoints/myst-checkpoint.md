@@ -143,7 +143,8 @@ input plain text of their choice in this space that is otherwise not part of mar
   
 * - Code Fence
   - ````
-    ```<language>                  
+    ```<language>
+    :tags:
     <code content>  
     ```
     ````

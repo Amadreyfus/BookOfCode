@@ -1,16 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: '0.8'
-    jupytext_version: '1.4.1'
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 (python)=
 # Python 3
 
@@ -105,16 +92,12 @@ These are sometimes called the 'natural operators'
 
 A **Tuple** is a read-only "immutable" fixed-length sequence of values
 
-```{code-cell} ipython3
-
 tup = (1,'a', None)
 for i in range(len(tup)):
     print(f'element at index i in tup is: {tup[i]}')
-```
 
 **Immutability** means that you cannot modify the object. Once set, it's size and values are permanently fixed. So,
 in order to "change" the object, you must create a new one incorporating the old one.
 
 (dictionaries)=
 ### Dictionaries
-
