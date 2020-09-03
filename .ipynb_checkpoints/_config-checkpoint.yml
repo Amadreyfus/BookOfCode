@@ -12,6 +12,12 @@ logo                        : "default.png"  # A path to the book logo
 exclude_patterns            : []  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 
 #######################################################################################
+# Parse and render settings
+parse:
+  myst_extended_syntax      : true  # enable MyST extended syntax support (see documents for details)
+  myst_url_schemes          : [mailto, http, https]  # URI schemes that will be recognised as external URLs in Markdown links 
+
+######################################################################################
 # Execution settings
 execute:
   execute_notebooks         : auto  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
@@ -50,9 +56,10 @@ repository:
 
 #######################################################################################
 # Advanced and power-user settings
-sphinx:
+sphinx:  
   extra_extensions:    # A list of extra extensions to load by Sphinx.
   config:
-   
+   html_css_files: ['custom.css']   
    html_theme_options:
     "search_bar_text": "Search for Content"
+   

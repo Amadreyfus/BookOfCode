@@ -100,6 +100,43 @@ These are sometimes called the 'natural operators'
 (lists)=
 ### Lists
 
+ - A list is similar to arrays in other languages. It is a sequence of values contained within square brackets and separated by a comma: `[1, 2, 'a', ...]`
+
+ - The list data structure facilitates fast random access and appends, but slow arbitrary insertions and searches. 
+ 
+ - A list can contain heterogenous elements
+ 
+ - A list is mutable
+ 
+**Constructing Lists**
+
+```{code-cell} ipython3
+
+list1 = [] # empty list
+list2 = list() # empty list
+list3 = list('string') # creates a list from individual letters, str has __iter__ attribute
+```
+
+(add_list)=
+#### Adding Elements to a List
+
+```{list-table}
+:header-rows: 1
+
+* - Sytnax
+  - Description
+  
+* - ```python
+    list.append(x)
+    ```
+  - Adds element to the end of a list
+
+```
+
+
+
+
+
 (tuples)=
 ### Tuples
 

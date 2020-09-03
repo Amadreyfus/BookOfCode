@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
@@ -209,6 +210,33 @@
      Useful MyST Examples and Notes
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-directives">
+     Common Directives
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#figures">
+       Figures
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#margins">
+       Margins
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#admonitions">
+       Admonitions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#list-tables">
+       List Tables
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
 </ul>
@@ -227,12 +255,14 @@
 <br />
 <p><strong>Quick Links to Chapter Content</strong></p>
 <ul class="simple">
+<li><p><a class="reference internal" href="#what-is-myst"><span class="std std-ref">What is MyST?</span></a></p></li>
 <li><p><a class="reference internal" href="#basic-markdown"><span class="std std-ref">Basic Markdown Syntax</span></a></p></li>
 <li><p><a class="reference internal" href="#basic-myst"><span class="std std-ref">Basic Myst Syntax</span></a></p></li>
 <li><p><a class="reference internal" href="#myst-ex"><span class="std std-ref">Useful MyST Examples and Notes</span></a></p></li>
+<li><p><a class="reference internal" href="#common-dir"><span class="std std-ref">Commmon Directives and Their Parameters</span></a></p></li>
 </ul>
 <div class="section" id="what-is-myst">
-<h2>What is MyST?<a class="headerlink" href="#what-is-myst" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>What is MyST?<a class="headerlink" href="#what-is-myst" title="Permalink to this headline">¶</a></h2>
 <br />
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -244,6 +274,26 @@
 of <a class="reference external" href="https://www.sphinx-doc.org/en/master/"><strong>Sphinx</strong></a>, such as directives and roles.</p>
 <p><strong>Sphinx</strong> is a documentation generation framework written in Python
 by George Brandl that uses reStructured Text as its markup language.</p>
+<p>So, <strong>MyST</strong> is essentially an extension of ordinary markdown - a lightweight markup language used for generating
+HTML - and as a result, content written in <strong>MyST</strong> should use a <strong>.md</strong> file extension.</p>
+<p>You will also need to include a <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/introduction.html"><strong>jupytext</strong></a> preamble at the top of the file if you want to include code outputs. Here is
+a preamble example that specifies a python kernel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">jupytext</span><span class="p">:</span>
+  <span class="n">text_representation</span><span class="p">:</span>
+    <span class="n">extension</span><span class="p">:</span> <span class="o">.</span><span class="n">md</span>
+    <span class="n">format_name</span><span class="p">:</span> <span class="n">myst</span>
+    <span class="n">format_version</span><span class="p">:</span> <span class="s1">&#39;0.8&#39;</span>
+    <span class="n">jupytext_version</span><span class="p">:</span> <span class="s1">&#39;1.4.1&#39;</span>
+<span class="n">kernelspec</span><span class="p">:</span>
+  <span class="n">display_name</span><span class="p">:</span> <span class="n">Python</span> <span class="mi">3</span>
+  <span class="n">language</span><span class="p">:</span> <span class="n">python</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">python3</span>
+<span class="o">---</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://jupytext.readthedocs.io/en/latest/introduction.html"><strong>Jupytext</strong></a> provides a way to convert between jupyter notebooks and other formats by converting the notebooks into text format.
+It also allows users to write notebooks in markdown and then convert that to a notebook.</p>
 <div class="section" id="directives">
 <h3>Directives<a class="headerlink" href="#directives" title="Permalink to this headline">¶</a></h3>
 <div class="margin sidebar">
@@ -462,7 +512,7 @@ key2: val2
 <p><strong>Using YAML frontmatter</strong>. A block of YAML front-matter just after the
 first line of the directive will be parsed as options for the directive. This needs to be
 surrounded by <code class="docutils literal notranslate"><span class="pre">---</span></code> lines. Everything in between will be parsed by YAML and
-passed as keyword arguments to your directive. For example<a class="bibtex reference internal" href="#myst-doc" id="id1">[Pro20]</a>:</p>
+passed as keyword arguments to your directive. For example<a class="bibtex reference internal" href="#myst-doc" id="id2">[Pro20]</a>:</p>
 <div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-block} python
 ---
 lineno-start: 10
@@ -477,9 +527,9 @@ print(f&#39;my {a}nd line&#39;)
 ```
 </pre></div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id2">
+<div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">This is my
-multi-line caption. It is <em>pretty nifty</em> ;-)</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+multi-line caption. It is <em>pretty nifty</em> ;-)</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>10
 11
 12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
@@ -488,12 +538,120 @@ multi-line caption. It is <em>pretty nifty</em> ;-)</span><a class="headerlink" 
 </span></pre></div>
 </td></tr></table></div>
 </div>
+</div>
+<div class="section" id="common-directives">
+<span id="common-dir"></span><h3>Common Directives<a class="headerlink" href="#common-directives" title="Permalink to this headline">¶</a></h3>
+<br />
+<p><strong>Quick Links to the Various Directives</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#figure"><span class="std std-ref">Figures</span></a></p></li>
+<li><p><a class="reference internal" href="#margin"><span class="std std-ref">Margins</span></a></p></li>
+<li><p><a class="reference internal" href="#admonition"><span class="std std-ref">Admonitions</span></a></p></li>
+<li><p><a class="reference internal" href="#list-table"><span class="std std-ref">List Tables</span></a></p></li>
+</ul>
+<div class="section" id="figures">
+<span id="figure"></span><h4>Figures<a class="headerlink" href="#figures" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{figure} &lt;.../path.png&gt;
+---
+scale: integer percentage (% symbol is optional)
+width: accepted units = [em, ex, px, in, cm, mm, %]
+height: same units as width
+alt: Alternate text for visually impaired
+align: default=center, left, right
+name: &lt;text&gt; allows for referencing of image
+figclass: can be used to add custom CSS or javascript. &lt;margin, margin-caption&gt;
+---
+&lt;caption content&gt;
+
+&lt;legend content, white space between these two is necessary&gt;
+```
+</pre></div>
+</div>
+<div class="center-caption figure align-default" id="confused-crayon">
+<a class="reference internal image-reference" href="../_images/crayon.png"><img alt="A cartoon of a confused blue crayon" src="../_images/crayon.png" style="width: 77.25px; height: 260.75px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">What a cute, confused crayon</span><a class="headerlink" href="#confused-crayon" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Referencing Figures</strong></p>
+<div class="sidebar">
+<p class="sidebar-title">Here is my sidebar title</p>
+<div class="tip admonition">
+<p class="admonition-title">Title goes here</p>
+<p>This is sidebar, but could easily be margin, unfortunately it is not easy to get the margin to
+align correctly with the content it references.</p>
+</div>
+</div>
+</div>
+<div class="section" id="margins">
+<span id="margin"></span><h4>Margins<a class="headerlink" href="#margins" title="Permalink to this headline">¶</a></h4>
+<div class="margin sidebar">
+<p class="sidebar-title">Margin</p>
+<p>This is text in a margin directive.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{margin} &lt;Title&gt;
+&lt;additional directive matter&gt;
+
+&lt;content&gt;
+```
+</pre></div>
+</div>
+</div>
+<div class="section" id="admonitions">
+<span id="admonition"></span><h4>Admonitions<a class="headerlink" href="#admonitions" title="Permalink to this headline">¶</a></h4>
+<p><strong>Common pre-built admonitions</strong>: note, tip, hint, attention, important, caution, warning, danger, error</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">:class:</span></code> parameter in conjuction with one of these styles the cell accordingly, but allows for custom content.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{admonition} Title
+   :class: &lt;type&gt;
+   
+   &lt;content&gt;
+```   
+</pre></div>
+</div>
+<div class="dropdown admonition important">
+<p class="admonition-title">Important</p>
+<p>This is a dropdown argument for class!</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>!</p>
+</div>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>!</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>!</p>
+</div>
+</div>
+<div class="section" id="list-tables">
+<span id="list-table"></span><h4>List Tables<a class="headerlink" href="#list-tables" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{list-table}
+:header-rows: 1
+:widths:
+
+* - &lt;column header&gt;
+  - &lt;column header&gt;
+  - ...
+
+* - &lt;cell content&gt;
+  - &lt;cell content&gt;
+.
+.
+.
+```
+</pre></div>
+</div>
 <p id="bibtex-bibliography-content/myst-0"><dl class="citation">
-<dt class="bibtex label" id="myst-doc"><span class="brackets"><a class="fn-backref" href="#id1">Pro20</a></span></dt>
+<dt class="bibtex label" id="myst-doc"><span class="brackets"><a class="fn-backref" href="#id2">Pro20</a></span></dt>
 <dd><p>The Executable Books Project. <em>The MyST Syntax Guide</em>. The Executable Book Project, 2020. URL: <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/using/syntax.html">https://myst-parser.readthedocs.io/en/latest/using/syntax.html</a>.</p>
 </dd>
 </dl>
 </p>
+</div>
 </div>
 </div>
 </div>
