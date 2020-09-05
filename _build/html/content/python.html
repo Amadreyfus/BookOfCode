@@ -40,6 +40,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python Coding Snippets" href="pysnippets.html" />
     <link rel="prev" title="Git" href="git.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,6 +95,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pysnippets.html">
+   Python Coding Snippets
   </a>
  </li>
 </ul>
@@ -232,6 +238,21 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#constructing-lists">
+       Constructing Lists
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#list-comprehensions">
+       List Comprehensions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#zipper-iterations">
+       Zipper Iterations
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#adding-elements-to-a-list">
        Adding Elements to a List
       </a>
@@ -246,6 +267,18 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dictionaries">
      Dictionaries
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#magic-commands-in-ipython">
+   Magic Commands in Ipython
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bookmarks">
+     Bookmarks
     </a>
    </li>
   </ul>
@@ -279,6 +312,7 @@
 <li><p><a class="reference internal" href="#dictionaries"><span class="std std-ref">Dictionaries</span></a></p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="#magic"><span class="std std-ref">Magic Commands in Ipython</span></a></p></li>
 </ul>
 <br />
 <div class="section" id="primitive-types-in-python">
@@ -420,7 +454,8 @@
 <li><p>A list can contain heterogenous elements</p></li>
 <li><p>A list is mutable</p></li>
 </ul>
-<p><strong>Constructing Lists</strong></p>
+<div class="section" id="constructing-lists">
+<h4>Constructing Lists<a class="headerlink" href="#constructing-lists" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># empty list</span>
@@ -429,6 +464,31 @@
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="list-comprehensions">
+<h4>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">¶</a></h4>
+<p>List comprehensions provide a unique way to generate list from iterable objects and some examples of this syntax are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[&lt;expression&gt;</span> <span class="pre">for</span> <span class="pre">&lt;item&gt;</span> <span class="pre">in</span> <span class="pre">&lt;iterable&gt;]</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">upper</span> <span class="pre">=</span> <span class="pre">[x.upper()</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">'string']</span></code></p>
+<p>Here is the output of the second expression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">upper</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;string&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">upper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;S&#39;, &#39;T&#39;, &#39;R&#39;, &#39;I&#39;, &#39;N&#39;, &#39;G&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="zipper-iterations">
+<h4>Zipper Iterations<a class="headerlink" href="#zipper-iterations" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">zip(list1,</span> <span class="pre">list2,</span> <span class="pre">...)</span> </code> creates tuples of corresponding elements in various collections</p>
 </div>
 <div class="section" id="adding-elements-to-a-list">
 <span id="add-list"></span><h4>Adding Elements to a List<a class="headerlink" href="#adding-elements-to-a-list" title="Permalink to this headline">¶</a></h4>
@@ -443,11 +503,14 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">list.append(x)</span></code></p></td>
 <td><p>Adds element to the end of a list</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">list.extend([x,</span> <span class="pre">y,</span> <span class="pre">z])</span> </code> or <code class="docutils literal notranslate"> <span class="pre">list1</span> <span class="pre">+</span> <span class="pre">list2</span></code></p></td>
+<td><p>Concatenates a current list with another</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">list.insert(i,</span> <span class="pre">elem)</span></code></p></td>
+<td><p>inserts the new element at <code class="docutils literal notranslate"><span class="pre">list[i]</span></code> and shifts every element at [i,+) to the right one place</p></td>
 </tr>
 </tbody>
 </table>
@@ -477,6 +540,21 @@ in order to “change” the object, you must create a new one incorporating the
 </div>
 <div class="section" id="dictionaries">
 <span id="id5"></span><h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="magic-commands-in-ipython">
+<span id="magic"></span><h2>Magic Commands in Ipython<a class="headerlink" href="#magic-commands-in-ipython" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bookmark"><span class="std std-ref">Bookmarks</span></a></p></li>
+</ul>
+<div class="section" id="bookmarks">
+<span id="bookmark"></span><h3>Bookmarks<a class="headerlink" href="#bookmarks" title="Permalink to this headline">¶</a></h3>
+<p>Creates a bookmark, which is essentially a reference to a path location</p>
+<p><code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">&lt;name&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160; </code> Creates a bookmark to current directory<br />
+<code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;dir&gt;</span> </code> Creates a bookmark to chosen directory<br />
+<code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">-l</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Lists all bookmarks in the workspace<br />
+<code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">-d</span> <span class="pre">&lt;name&gt;</span>&#160;&#160;&#160; </code> Removes a specific bookmark<br />
+<code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">-r</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Removes all bookmarks</p>
 </div>
 </div>
 </div>
@@ -510,6 +588,7 @@ in order to “change” the object, you must create a new one incorporating the
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="git.html" title="previous page">Git</a>
+    <a class='right-next' id="next-link" href="pysnippets.html" title="next page">Python Coding Snippets</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

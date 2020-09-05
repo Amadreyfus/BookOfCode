@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Welcome to the Book of Code &#8212; Book of Code</title>
+    <title>Python Coding Snippets &#8212; Book of Code</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,7 +40,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="MyST Markdown" href="myst.html" />
+    <link rel="prev" title="Python 3" href="python.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -75,12 +75,12 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="#">
+  <a class="reference internal" href="intro.html">
    Welcome to the Book of Code
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="myst.html">
    MyST Markdown
@@ -96,8 +96,8 @@
    Python 3
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pysnippets.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Python Coding Snippets
   </a>
  </li>
@@ -141,9 +141,12 @@
     
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="../_sources/content/pysnippets.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/content/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/content/pysnippets.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -175,6 +178,23 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Amadreyfus/BookOfCode/master?urlpath=tree/content/pysnippets.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -185,9 +205,28 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#acknowledgements">
-   Acknowledgements
+  <a class="reference internal nav-link" href="#basic-python">
+   Basic Python
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-operations">
+     List Operations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-package">
+     Random Package
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#basic-permutations-on-a-list">
+       Basic permutations on a list
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -199,34 +238,70 @@
         
               <div>
                 
-  <div class="section" id="welcome-to-the-book-of-code">
-<h1>Welcome to the Book of Code<a class="headerlink" href="#welcome-to-the-book-of-code" title="Permalink to this headline">¶</a></h1>
-<br />
-<br />
-<p>This book is primarily meant as a reference for myself in order to collect and
-organize the useful coding syntax I am constantly forgetting across all
-of the different languages I encounter.</p>
-<p>Essentially, it is a collection of cheat sheets that takes advantage of the
-functionality of Jupyter Book in order to create a comprehensive
-and easy to manage repository of commands and syntax with explanations.</p>
-<p>This will be a work in progress as I continuously add to this project
-and reorganize as my understanding of jupyter-book grows.</p>
-<p>It is also an inherently selfish document in that I will only consider my frame
-of reference in populating and organizing it. As a result, it will be idiosyncratic
-in terms of its content and layout, although, hopefully, not egregiously so.</p>
-<p>For anyone else interested in creating their own jupter-book,
-instructions can be found at <a class="reference external" href="https://beta.jupyterbook.org/intro.html">https://beta.jupyterbook.org/intro.html</a>.</p>
-<br />
-<p><strong>Quick references to various languages.</strong></p>
+  <div class="section" id="python-coding-snippets">
+<span id="snippets"></span><h1>Python Coding Snippets<a class="headerlink" href="#python-coding-snippets" title="Permalink to this headline">¶</a></h1>
+<p><strong>Quick References to Page Content</strong></p>
 <ul class="simple">
-<li><p><a class="reference internal" href="myst.html#myst"><span class="std std-ref"> Myst Markdown</span></a></p></li>
-<li><p><a class="reference internal" href="git.html#git"><span class="std std-ref"> Git Commands</span></a></p></li>
-<li><p><a class="reference internal" href="python.html#python"><span class="std std-ref"> Python 3</span></a></p></li>
+<li><p><a class="reference internal" href="#basic-python"><span class="std std-ref">Basic Python</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#list-ops"><span class="std std-ref">List Operations</span></a></p></li>
+<li><p><a class="reference internal" href="#random-package"><span class="std std-ref">Random Package</span></a></p></li>
 </ul>
-<div class="section" id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
-<p>A big thank you to the <a class="reference external" href="https://executablebooks.org/en/latest/">Executable Book Project</a></p>
-<div class="toctree-wrapper compound">
+</li>
+</ul>
+<div class="section" id="basic-python">
+<span id="id1"></span><h2>Basic Python<a class="headerlink" href="#basic-python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list-operations">
+<span id="list-ops"></span><h3>List Operations<a class="headerlink" href="#list-operations" title="Permalink to this headline">¶</a></h3>
+<p>Creating a list of consecutive integers</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Merging a list with its reverse</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;SeanCahill&#39;</span>
+<span class="n">merge</span> <span class="o">=</span> <span class="p">[(</span><span class="n">f</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">merge</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;S&#39;, &#39;l&#39;), (&#39;e&#39;, &#39;l&#39;), (&#39;a&#39;, &#39;i&#39;), (&#39;n&#39;, &#39;h&#39;), (&#39;C&#39;, &#39;a&#39;), (&#39;a&#39;, &#39;C&#39;), (&#39;h&#39;, &#39;n&#39;), (&#39;i&#39;, &#39;a&#39;), (&#39;l&#39;, &#39;e&#39;), (&#39;l&#39;, &#39;S&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="random-package">
+<span id="id2"></span><h3>Random Package<a class="headerlink" href="#random-package" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="basic-permutations-on-a-list">
+<span id="basic-perm"></span><h4>Basic permutations on a list<a class="headerlink" href="#basic-permutations-on-a-list" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="n">g</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">shuffle</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[7, 9, 0, 6, 3, 8, 5, 4, 1, 2]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -259,7 +334,7 @@ instructions can be found at <a class="reference external" href="https://beta.ju
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="myst.html" title="next page">MyST Markdown</a>
+    <a class='left-prev' id="prev-link" href="python.html" title="previous page">Python 3</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

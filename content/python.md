@@ -26,6 +26,7 @@ kernelspec:
   - {ref}`Lists <lists>`
   - {ref}`Tuples <tuples>`
   - {ref}`Dictionaries`
+- {ref}`magic`  
 
 
 <br />
@@ -108,7 +109,7 @@ These are sometimes called the 'natural operators'
  
  - A list is mutable
  
-**Constructing Lists**
+#### Constructing Lists
 
 ```{code-cell} ipython3
 
@@ -116,6 +117,23 @@ list1 = [] # empty list
 list2 = list() # empty list
 list3 = list('string') # creates a list from individual letters, str has __iter__ attribute
 ```
+
+#### List Comprehensions
+
+List comprehensions provide a unique way to generate list from iterable objects and some examples of this syntax are:
+
+`[<expression> for <item> in <iterable>]`    
+`upper = [x.upper() for x in 'string']`
+
+Here is the output of the second expression.
+```{code-cell} ipython
+upper = [x.upper() for x in 'string']
+print(upper)
+```
+
+#### Zipper Iterations
+
+`zip(list1, list2, ...) ` creates tuples of corresponding elements in various collections
 
 (add_list)=
 #### Adding Elements to a List
@@ -126,10 +144,14 @@ list3 = list('string') # creates a list from individual letters, str has __iter_
 * - Sytnax
   - Description
   
-* - ```python
-    list.append(x)
-    ```
+* - `list.append(x)`
   - Adds element to the end of a list
+  
+* - `list.extend([x, y, z]) ` or ` list1 + list2`
+  - Concatenates a current list with another
+  
+* - `list.insert(i, elem)`
+  - inserts the new element at ` list[i] ` and shifts every element at [i,+) to the right one place
 
 ```
 
@@ -154,4 +176,20 @@ in order to "change" the object, you must create a new one incorporating the old
 
 (dictionaries)=
 ### Dictionaries
+
+(magic)=
+## Magic Commands in Ipython
+
+- {ref}`bookmark`
+
+(bookmark)=
+### Bookmarks
+
+Creates a bookmark, which is essentially a reference to a path location
+
+`%bookmark <name>       ` Creates a bookmark to current directory  
+`%bookmark <name> <dir> ` Creates a bookmark to chosen directory  
+`%bookmark -l           ` Lists all bookmarks in the workspace  
+`%bookmark -d <name>    ` Removes a specific bookmark  
+`%bookmark -r           ` Removes all bookmarks
 
