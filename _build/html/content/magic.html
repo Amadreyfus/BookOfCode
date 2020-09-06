@@ -1,0 +1,462 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Magic Commands in Ipython &#8212; Book of Code</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python Coding Snippets" href="pysnippets.html" />
+    <link rel="prev" title="Python 3" href="python.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/default.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Book of Code</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search for Content" aria-label="Search for Content" autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Book of Code
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="myst.html">
+   MyST Markdown
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python.html">
+   Python 3
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Magic Commands in Ipython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pysnippets.html">
+   Python Coding Snippets
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/magic.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Amadreyfus/BookOfCode"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bookmark-bookmarks">
+   &lt;%bookmark&gt;  Bookmarks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cd-changing-working-directory">
+   &lt;%cd&gt;  Changing Working Directory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#config-changing-configuration-of-ipython">
+   &lt;%config&gt;  Changing Configuration of Ipython
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#debug-activating-the-interactive-debugging-environment">
+   &lt;%debug&gt;  Activating the Interactive Debugging Environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#history-getting-history-of-input-commands">
+   &lt;%history&gt;  Getting History of Input Commands
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#macro-create-a-macro-using-history">
+   &lt;%macro&gt;  Create a Macro Using History
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timeit-time-execution-of-python-statements">
+   &lt;%timeit&gt; Time Execution of Python Statements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-other-magic-commands">
+   Table of Other Magic Commands
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cell-magic-commands">
+   Cell Magic Commands
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="magic-commands-in-ipython">
+<span id="magic"></span><h1>Magic Commands in Ipython<a class="headerlink" href="#magic-commands-in-ipython" title="Permalink to this headline">¶</a></h1>
+<p><strong>Quick Reference Links to Page Content</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bookmark"><span class="std std-ref">&lt;%bookmark&gt;  Bookmarks</span></a></p></li>
+<li><p><a class="reference internal" href="#cd"><span class="std std-ref">&lt;%cd&gt;  Changing Working Directory</span></a></p></li>
+<li><p><a class="reference internal" href="#config"><span class="std std-ref">&lt;%config&gt;  Changing Configuration of Ipython</span></a></p></li>
+<li><p><a class="reference internal" href="#history"><span class="std std-ref">&lt;%history&gt;  Getting History of Input Commands</span></a></p></li>
+<li><p><a class="reference internal" href="#macro"><span class="std std-ref">&lt;%macro&gt;  Create a Macro Using History</span></a></p></li>
+<li><p><a class="reference internal" href="#timeit"><span class="std std-ref">&lt;%timeit&gt; Time Execution of Python Statements</span></a></p></li>
+<li><p><a class="reference internal" href="#magic-table"><span class="std std-ref">Table of Magic Commands</span></a></p></li>
+<li><p><a class="reference internal" href="#cell-table"><span class="std std-ref">Table of Magic Commands for Cells</span></a></p></li>
+</ul>
+<div class="section" id="bookmark-bookmarks">
+<span id="bookmark"></span><h2>&lt;%bookmark&gt;  Bookmarks<a class="headerlink" href="#bookmark-bookmarks" title="Permalink to this headline">¶</a></h2>
+<p>Creates a bookmark, which is essentially a reference to a path location</p>
+<p><code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">&lt;name&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160; </code> Creates a bookmark to current directory<br />
+<code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;dir&gt;</span> </code> Creates a bookmark to chosen directory<br />
+<code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">-l</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Lists all bookmarks in the workspace<br />
+<code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">-d</span> <span class="pre">&lt;name&gt;</span>&#160;&#160;&#160; </code> Removes a specific bookmark<br />
+<code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">-r</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Removes all bookmarks</p>
+</div>
+<div class="section" id="cd-changing-working-directory">
+<span id="cd"></span><h2>&lt;%cd&gt;  Changing Working Directory<a class="headerlink" href="#cd-changing-working-directory" title="Permalink to this headline">¶</a></h2>
+<p>Allows you to change your working directory for inputting and outputting files</p>
+<p>The magic command <strong>%dhist</strong> can provide a nicely formatted list of directories visited during a session</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-b</span> <span class="pre">&lt;bookmark_name&gt;</span> </code> If the bookmark is unique in the namespace, -b is not required, but it allows for tab completion<br />
+<code class="docutils literal notranslate"><span class="pre">cd</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Will change directory to the root directory<br />
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Will change directory to last directory visited<br />
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Will change directory up one level heirarchically<br />
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">&lt;path&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Will change directory to a specific path<br />
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-&lt;n&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Will change directory to the corresponding integer n in the %dhist</p>
+</div>
+<div class="section" id="config-changing-configuration-of-ipython">
+<span id="config"></span><h2>&lt;%config&gt;  Changing Configuration of Ipython<a class="headerlink" href="#config-changing-configuration-of-ipython" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">%config</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Shows what classes in workspace are configurable<br />
+<code class="docutils literal notranslate"><span class="pre">%config</span> <span class="pre">&lt;class&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Shows what is configurable in the current class<br />
+<code class="docutils literal notranslate"><span class="pre">%config</span> <span class="pre">&lt;class&gt;.&lt;trait&gt;</span> <span class="pre">=</span> <span class="pre">&lt;value&gt;</span> </code> Sets a new configuration value for a trait</p>
+</div>
+<div class="section" id="debug-activating-the-interactive-debugging-environment">
+<span id="debug"></span><h2>&lt;%debug&gt;  Activating the Interactive Debugging Environment<a class="headerlink" href="#debug-activating-the-interactive-debugging-environment" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">%debug</span> <span class="pre">[--breakpoint</span> <span class="pre">FILE:LINE]</span> <span class="pre">[statement</span> <span class="pre">[statement</span> <span class="pre">...]]</span> </code> Don’t know much about debugging</p>
+</div>
+<div class="section" id="history-getting-history-of-input-commands">
+<span id="history"></span><h2>&lt;%history&gt;  Getting History of Input Commands<a class="headerlink" href="#history-getting-history-of-input-commands" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">%history</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Returns the input commands that have been entered in the session<br />
+<code class="docutils literal notranslate"><span class="pre">-n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Prints line numbers for each input<br />
+<code class="docutils literal notranslate"><span class="pre">-o</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Also prints the output for each input<br />
+<code class="docutils literal notranslate"><span class="pre">-p</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Prints classic &gt;&gt;&gt; prompts before each input<br />
+<code class="docutils literal notranslate"><span class="pre">-t</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Prints translated history as python understands it (makes your inputs into explicit code)<br />
+<code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">&lt;path\filename&gt;</span></code> Writes history to a specificied location, creating a new file with filename<br />
+<code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">&lt;range&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Places a range on the number of lines displayed</p>
+</div>
+<div class="section" id="macro-create-a-macro-using-history">
+<span id="macro"></span><h2>&lt;%macro&gt;  Create a Macro Using History<a class="headerlink" href="#macro-create-a-macro-using-history" title="Permalink to this headline">¶</a></h2>
+<p>Defines a macro for future re-execution. Uses the line numbers of history.</p>
+<p><code class="docutils literal notranslate"><span class="pre">%macro</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;n1-n5,</span> <span class="pre">n7,</span> <span class="pre">n9&gt;</span> </code> Where n’s are line numbers in your history<br />
+<code class="docutils literal notranslate"><span class="pre">-r</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Use raw input<br />
+<code class="docutils literal notranslate"><span class="pre">-q</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Quiet</p>
+</div>
+<div class="section" id="timeit-time-execution-of-python-statements">
+<span id="timeit"></span><h2>&lt;%timeit&gt; Time Execution of Python Statements<a class="headerlink" href="#timeit-time-execution-of-python-statements" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">[-n</span> <span class="pre">&lt;N&gt;</span> <span class="pre">-r</span> <span class="pre">&lt;R&gt;</span> <span class="pre">[-t|-c]</span> <span class="pre">-q</span> <span class="pre">-p</span> <span class="pre">&lt;P&gt;</span> <span class="pre">-o]</span> </code> Inline Statement<br />
+<code class="docutils literal notranslate"><span class="pre">%%timeit</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Cell Statement<br />
+<code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">&lt;N&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Execute given statement N times in a loop.<br />
+<code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">&lt;R&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Number of repititions of N loops. Default: 7<br />
+<code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">&lt;P&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Precision to P digits of time<br />
+<code class="docutils literal notranslate"><span class="pre">-o</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Returns TimeitResult object</p>
+</div>
+<div class="section" id="table-of-other-magic-commands">
+<span id="magic-table"></span><h2>Table of Other Magic Commands<a class="headerlink" href="#table-of-other-magic-commands" title="Permalink to this headline">¶</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%quickref</span></code></p></td>
+<td><p>Displays a reference sheet with all magic commands</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%alias</span> </code> and <code class="docutils literal notranslate"><span class="pre">%alias_magic</span></code> and <code class="docutils literal notranslate"> <span class="pre">%unalias</span></code></p></td>
+<td><p>Allows users to create references (aliases) for system commands or lines and cells of code</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%dhist</span></code></p></td>
+<td><p>Prints a history of directories visited in a session</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%dirs</span></code></p></td>
+<td><p>Returns the current directory stack (files in current directory)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">[-l]</span> <span class="pre">[gui]</span></code></p></td>
+<td><p>Setup matplotlib to work interactively, -l lists all available backends, gui specifies backend</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%pip</span></code></p></td>
+<td><p>Run the pip package manager w/in current kernel</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%pwd</span></code></p></td>
+<td><p>Displays current working directory</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reset</span> <span class="pre">[-f]</span> <span class="pre">[-s]</span> <span class="pre">[in]</span> <span class="pre">[out]</span> <span class="pre">[dhist]</span></code></p></td>
+<td><p>Resets the namespace by removing all names defined by user</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reset_selective</span></code></p></td>
+<td><p>Allows specification of which named references to remove</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">set_env</span></code></p></td>
+<td><p>Allows user to set environment config and variables</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cell-magic-commands">
+<span id="cell-table"></span><h2>Cell Magic Commands<a class="headerlink" href="#cell-magic-commands" title="Permalink to this headline">¶</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%%bash</span></code></p></td>
+<td><p>Runs cells with bash in a subprocess</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%%capture</span></code></p></td>
+<td><p>Run the cells, capturing stdout, stderr and IPython richdisplay() cells</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%%html</span></code></p></td>
+<td><p>Render the cells as blocks of html</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%%javascript</span> </code> or <code class="docutils literal notranslate"> <span class="pre">%%js</span></code></p></td>
+<td><p>Runs the cell as a block of javascript</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%%latex</span></code></p></td>
+<td><p>Cell run as LateX</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%%markdown</span></code></p></td>
+<td><p>Run as markdown</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%%perl</span></code></p></td>
+<td><p>perl</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%%python2</span></code></p></td>
+<td><p>You guessed it.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%%ruby</span></code></p></td>
+<td><p>ruby</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%%</span> <span class="pre">writefile</span> <span class="pre">[-a]</span> <span class="pre">filename</span></code></p></td>
+<td><p>Writes content of cell to a file in pwd</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="python.html" title="previous page">Python 3</a>
+    <a class='right-next' id="next-link" href="pysnippets.html" title="next page">Python Coding Snippets</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Sean Cahill<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

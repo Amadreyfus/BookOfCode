@@ -25,11 +25,13 @@ instructions can be found at [https://beta.jupyterbook.org/intro.html][jb].
 
 <br />
 
-**Quick references to various languages.**
+**Quick references to various sections.**
 
 - {ref}` Myst Markdown <MyST>`
 - {ref}` Git Commands <git>`
 - {ref}` Python 3 <python>`
+- {ref}` Magic Commands in IPython <magic>`
+- {ref}` Python Coding Snippets <snippets>`
 
 
 ## Acknowledgements

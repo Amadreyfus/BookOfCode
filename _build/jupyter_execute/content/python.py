@@ -13,7 +13,7 @@
   - {ref}`Lists <lists>`
   - {ref}`Tuples <tuples>`
   - {ref}`Dictionaries`
-- {ref}`magic`  
+  
 
 
 <br />
@@ -156,19 +156,3 @@ in order to "change" the object, you must create a new one incorporating the old
 
 (dictionaries)=
 ### Dictionaries
-
-(magic)=
-## Magic Commands in Ipython
-
-- {ref}`bookmark`
-
-(bookmark)=
-### Bookmarks
-
-Creates a bookmark, which is essentially a reference to a path location
-
-`%bookmark <name>       ` Creates a bookmark to current directory  
-`%bookmark <name> <dir> ` Creates a bookmark to chosen directory  
-`%bookmark -l           ` Lists all bookmarks in the workspace  
-`%bookmark -d <name>    ` Removes a specific bookmark  
-`%bookmark -r           ` Removes all bookmarks
