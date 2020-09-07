@@ -13,6 +13,7 @@
   - {ref}`Lists <lists>`
   - {ref}`Tuples <tuples>`
   - {ref}`Dictionaries`
+- {ref}`Control Flow <control_flow>`  
   
 
 
@@ -106,8 +107,11 @@ list3 = list('string') # creates a list from individual letters, str has __iter_
 
 List comprehensions provide a unique way to generate list from iterable objects and some examples of this syntax are:
 
-`[<expression> for <item> in <iterable>]`    
-`upper = [x.upper() for x in 'string']`
+``` python
+new_list = [expression for i in iterable] # applies the expression to each item in the iterable to generate new list   
+
+upper = [x.upper() for x in 'string']
+```
 
 Here is the output of the second expression.
 
@@ -156,3 +160,63 @@ in order to "change" the object, you must create a new one incorporating the old
 
 (dictionaries)=
 ### Dictionaries
+
+A dictionary is map of unique keys to values. Like set elements, keys must be unique.
+
+(control_flow)=
+## Control Flow
+
+(assertions) = 
+### Assertions
+
+Assertions provide a way of checking if variables have certain values or objects meet certain conditions which
+minimizes the risk of an error in the code. General form:
+
+
+```python
+assert <boolean condition>, <error string>
+```
+
+Specific examples:
+
+```python 
+assert n >= 0, f'n must be non-negative and is {n} instead'
+
+assert isinstance(a, str) and isinstance(b, str), \
+       f'One of a:{type(a)} or b:{type(b)} is not a string'
+```
+
+(lambda)=
+### Lambda Functions (Anonymous Functions)
+
+$\lambda\,$ Functions are functions that are specified by the keyword `lambda` and do not need to be 
+named. They have the general form
+
+```python
+lambda x: <expression(x)>
+```
+where the variables on the left side of the colon are considered "bound" variables.  
+
+Here are some concrete examples of lambda functions:
+
+```python
+lambda x: x + 1
+(lambda x: x + 1)(2) # Applies lambda function to the argmuent (2)
+add_one = lambda x: x + 1
+full_name = lambda first, second: f'Full name: {first.title()} {second.title()}'
+```
+````{margin}
+```{caution}
+Because under the hood the lambda function has no name, it can be harder to debug since the 
+traceback will not contain as much information
+```
+````
+
+````{important}
+Lambda functions can prove very useful by providing functionaly in normally tricky spots. A 
+good example is working as a key to sort a dictionary by specific values. A more fleshed out examples can 
+be found {ref}`here <sort_dic_by_key>`
+
+```python
+sorted(data, key= lambda x: x['key_value'])
+```

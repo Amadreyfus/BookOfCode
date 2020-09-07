@@ -1,4 +1,4 @@
-# Welcome to the Book of Code
+# Intro and Table of Contents
 <br />
 <br />
 
@@ -32,6 +32,7 @@ instructions can be found at [https://beta.jupyterbook.org/intro.html][jb].
 - {ref}` Python 3 <python>`
 - {ref}` Magic Commands in IPython <magic>`
 - {ref}` Python Coding Snippets <snippets>`
+- {ref}` Programming Languages at a High Level <languages>`
 
 
 ## Acknowledgements

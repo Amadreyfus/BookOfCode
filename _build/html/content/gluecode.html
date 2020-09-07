@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Git &#8212; Book of Code</title>
+    <title>GlueCode &#8212; Book of Code</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,8 +40,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python 3" href="python.html" />
-    <link rel="prev" title="MyST Markdown" href="myst.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="languages.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -87,8 +86,8 @@
    MyST Markdown
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="git.html">
    Git
   </a>
  </li>
@@ -107,8 +106,8 @@
    Python Coding Snippets
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gluecode.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    GlueCode
   </a>
  </li>
@@ -154,9 +153,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/content/git.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/content/gluecode.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -186,6 +185,23 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Amadreyfus/BookOfCode/master?urlpath=tree/content/gluecode.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -194,14 +210,7 @@
             <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#useful-git-commit-emojis">
-   Useful Git Commit Emojis
-  </a>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -210,80 +219,94 @@
         
               <div>
                 
-  <div class="section" id="git">
-<span id="id1"></span><h1>Git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="useful-git-commit-emojis">
-<span id="emojis"></span><h2>Useful Git Commit Emojis<a class="headerlink" href="#useful-git-commit-emojis" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Using <kbd>Win</kbd>+<kbd>.</kbd> will pull up the Emoji Keyboard on Windows</p>
+  <div class="section" id="gluecode">
+<span id="glue-code"></span><h1>GlueCode<a class="headerlink" href="#gluecode" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+</pre></div>
 </div>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Commit Type</p></th>
-<th class="head"><p>Emoji</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Initial Commit</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/party-popper/">🎉 Party Popper</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>Version Tag</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/bookmark/">🔖 Bookmark</a></p></td>
-</tr>
-<tr class="row-even"><td><p>Content Update</p></td>
-<td><p><a class="reference external" href="https://emojipedia.org/memo/">📝 Memo</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>New Feature</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/sparkles/">✨ Sparkles</a></p></td>
-</tr>
-<tr class="row-even"><td><p>Bugfix</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/bug/">🐛 Bug</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>Security Fix</p></td>
-<td><p><a class="reference external" href="https://emojipedia.org/lock/">🔒 Lock</a></p></td>
-</tr>
-<tr class="row-even"><td><p>Metadata</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/card-index/">📇 Card Index</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>Refactoring</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/black-universal-recycling-symbol/">♻️ Black Universal Recycling Symbol</a></p></td>
-</tr>
-<tr class="row-even"><td><p>Documentation</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/books/">📚 Books</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>Internationalization</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/globe-with-meridians/">🌐 Globe With Meridians</a></p></td>
-</tr>
-<tr class="row-even"><td><p>Accessibility</p></td>
-<td><p><a class="reference external" href="https://emojipedia.org/wheelchair-symbol/">♿ Wheelchair</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>Performance</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/horse/">🐎 Horse</a></p></td>
-</tr>
-<tr class="row-even"><td><p>Cosmetic</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/artist-palette/">🎨 Artist Palette</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>Tooling</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/wrench/">🔧 Wrench</a></p></td>
-</tr>
-<tr class="row-even"><td><p>Tests</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/police-cars-revolving-light/">🚨 Police Cars Revolving Light</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>Tests</p></td>
-<td><p><a class="reference external" href="https://emojipedia.org/test-tube/">🧪 Test Tube</a></p></td>
-</tr>
-<tr class="row-even"><td><p>Deprecation</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/pile-of-poo/">💩 Pile of Poo</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>Removal</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/wastebasket/">🗑️ Wastebasket</a></p></td>
-</tr>
-<tr class="row-even"><td><p>Work In Progress (WIP)</p></td>
-<td><p><a class="reference external" href="http://emojipedia.org/construction-sign/">🚧 Construction Sign</a></p></td>
-</tr>
-</tbody>
-</table>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c0</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">t_insert</span> <span class="o">=</span> <span class="o">%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">n3000</span> <span class="o">-</span><span class="n">r100</span> <span class="n">c0</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The slowest run took 177.07 times longer than the fastest. This could mean that an intermediate result is being cached.
+40.7 µs ± 23.5 µs per loop (mean ± std. dev. of 100 runs, 3000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">glue</span><span class="p">(</span><span class="s1">&#39;t_insert&#39;</span><span class="p">,</span> <span class="n">t_insert</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 40.7 µs ± 23.5 µs per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">t_append</span> <span class="o">=</span> <span class="o">%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">n3000</span> <span class="o">-</span><span class="n">r100</span> <span class="n">c1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>41.1 ns ± 10.9 ns per loop (mean ± std. dev. of 100 runs, 3000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">glue</span><span class="p">(</span><span class="s1">&#39;t_append&#39;</span><span class="p">,</span> <span class="n">t_append</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 41.1 ns ± 10.9 ns per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Verify that both lists are the same</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">c1</span><span class="p">)]),</span> <span class="s2">&quot;Answers differed?&quot;</span>
+
+<span class="c1"># Report the ratio of execution times</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">==&gt; (insert time) / (append time) for 300,000 ops: ~ </span><span class="si">{</span><span class="n">t_insert</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">t_append</span><span class="o">.</span><span class="n">average</span><span class="si">}</span><span class="s2">x&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
+==&gt; (insert time) / (append time) for 300,000 ops: ~ 989.6944691348043x
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">glue</span><span class="p">(</span><span class="s1">&#39;t_ratio&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">t_insert</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">t_append</span><span class="o">.</span><span class="n">average</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>989.6944691348043
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -315,8 +338,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="myst.html" title="previous page">MyST Markdown</a>
-    <a class='right-next' id="next-link" href="python.html" title="next page">Python 3</a>
+    <a class='left-prev' id="prev-link" href="languages.html" title="previous page">&lt;no title&gt;</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -1,1 +1,40 @@
-{}
+{
+  "content/gluecode": {
+    "t_append": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "t_append",
+          "mime_prefix": ""
+        }
+      },
+      "data": {
+        "text/plain": "<TimeitResult : 41.1 ns \u00b1 10.9 ns per loop (mean \u00b1 std. dev. of 100 runs, 3000 loops each)>"
+      }
+    },
+    "t_insert": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "t_insert",
+          "mime_prefix": ""
+        }
+      },
+      "data": {
+        "text/plain": "<TimeitResult : 40.7 \u00b5s \u00b1 23.5 \u00b5s per loop (mean \u00b1 std. dev. of 100 runs, 3000 loops each)>"
+      }
+    },
+    "t_ratio": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "t_ratio",
+          "mime_prefix": ""
+        }
+      },
+      "data": {
+        "text/plain": "989.6944691348043"
+      }
+    }
+  }
+}

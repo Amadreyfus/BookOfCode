@@ -77,7 +77,7 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Welcome to the Book of Code
+   Intro and Table of Contents
   </a>
  </li>
 </ul>
@@ -105,6 +105,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="pysnippets.html">
    Python Coding Snippets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gluecode.html">
+   GlueCode
   </a>
  </li>
 </ul>
@@ -192,37 +197,72 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bookmark-bookmarks">
-   &lt;%bookmark&gt;  Bookmarks
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     &lt;%bookmark&gt;
+    </span>
+   </code>
+   Bookmarks
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cd-changing-working-directory">
-   &lt;%cd&gt;  Changing Working Directory
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     &lt;%cd&gt;
+    </span>
+   </code>
+   Changing Working Directory
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#config-changing-configuration-of-ipython">
-   &lt;%config&gt;  Changing Configuration of Ipython
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     &lt;%config&gt;
+    </span>
+   </code>
+   Changing Configuration of Ipython
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#debug-activating-the-interactive-debugging-environment">
-   &lt;%debug&gt;  Activating the Interactive Debugging Environment
+  <a class="reference internal nav-link" href="#debug-interactive-debugging-environment">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     &lt;%debug&gt;
+    </span>
+   </code>
+   Interactive Debugging Environment
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#history-getting-history-of-input-commands">
-   &lt;%history&gt;  Getting History of Input Commands
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     &lt;%history&gt;
+    </span>
+   </code>
+   Getting History of Input Commands
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#macro-create-a-macro-using-history">
-   &lt;%macro&gt;  Create a Macro Using History
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     &lt;%macro&gt;
+    </span>
+   </code>
+   Create a Macro Using History
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#timeit-time-execution-of-python-statements">
-   &lt;%timeit&gt; Time Execution of Python Statements
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     &lt;%timeit&gt;
+    </span>
+   </code>
+   Time Execution of Python Statements
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -247,6 +287,7 @@
                 
   <div class="section" id="magic-commands-in-ipython">
 <span id="magic"></span><h1>Magic Commands in Ipython<a class="headerlink" href="#magic-commands-in-ipython" title="Permalink to this headline">¶</a></h1>
+<br />
 <p><strong>Quick Reference Links to Page Content</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#bookmark"><span class="std std-ref">&lt;%bookmark&gt;  Bookmarks</span></a></p></li>
@@ -259,7 +300,7 @@
 <li><p><a class="reference internal" href="#cell-table"><span class="std std-ref">Table of Magic Commands for Cells</span></a></p></li>
 </ul>
 <div class="section" id="bookmark-bookmarks">
-<span id="bookmark"></span><h2>&lt;%bookmark&gt;  Bookmarks<a class="headerlink" href="#bookmark-bookmarks" title="Permalink to this headline">¶</a></h2>
+<span id="bookmark"></span><h2><code class="docutils literal notranslate"><span class="pre">&lt;%bookmark&gt;</span></code>  Bookmarks<a class="headerlink" href="#bookmark-bookmarks" title="Permalink to this headline">¶</a></h2>
 <p>Creates a bookmark, which is essentially a reference to a path location</p>
 <p><code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">&lt;name&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160; </code> Creates a bookmark to current directory<br />
 <code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;dir&gt;</span> </code> Creates a bookmark to chosen directory<br />
@@ -268,7 +309,7 @@
 <code class="docutils literal notranslate"><span class="pre">%bookmark</span> <span class="pre">-r</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Removes all bookmarks</p>
 </div>
 <div class="section" id="cd-changing-working-directory">
-<span id="cd"></span><h2>&lt;%cd&gt;  Changing Working Directory<a class="headerlink" href="#cd-changing-working-directory" title="Permalink to this headline">¶</a></h2>
+<span id="cd"></span><h2><code class="docutils literal notranslate"><span class="pre">&lt;%cd&gt;</span></code>  Changing Working Directory<a class="headerlink" href="#cd-changing-working-directory" title="Permalink to this headline">¶</a></h2>
 <p>Allows you to change your working directory for inputting and outputting files</p>
 <p>The magic command <strong>%dhist</strong> can provide a nicely formatted list of directories visited during a session</p>
 <p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-b</span> <span class="pre">&lt;bookmark_name&gt;</span> </code> If the bookmark is unique in the namespace, -b is not required, but it allows for tab completion<br />
@@ -279,17 +320,17 @@
 <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-&lt;n&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Will change directory to the corresponding integer n in the %dhist</p>
 </div>
 <div class="section" id="config-changing-configuration-of-ipython">
-<span id="config"></span><h2>&lt;%config&gt;  Changing Configuration of Ipython<a class="headerlink" href="#config-changing-configuration-of-ipython" title="Permalink to this headline">¶</a></h2>
+<span id="config"></span><h2><code class="docutils literal notranslate"><span class="pre">&lt;%config&gt;</span></code>  Changing Configuration of Ipython<a class="headerlink" href="#config-changing-configuration-of-ipython" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">%config</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Shows what classes in workspace are configurable<br />
 <code class="docutils literal notranslate"><span class="pre">%config</span> <span class="pre">&lt;class&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Shows what is configurable in the current class<br />
 <code class="docutils literal notranslate"><span class="pre">%config</span> <span class="pre">&lt;class&gt;.&lt;trait&gt;</span> <span class="pre">=</span> <span class="pre">&lt;value&gt;</span> </code> Sets a new configuration value for a trait</p>
 </div>
-<div class="section" id="debug-activating-the-interactive-debugging-environment">
-<span id="debug"></span><h2>&lt;%debug&gt;  Activating the Interactive Debugging Environment<a class="headerlink" href="#debug-activating-the-interactive-debugging-environment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="debug-interactive-debugging-environment">
+<span id="debug"></span><h2><code class="docutils literal notranslate"><span class="pre">&lt;%debug&gt;</span></code>  Interactive Debugging Environment<a class="headerlink" href="#debug-interactive-debugging-environment" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">%debug</span> <span class="pre">[--breakpoint</span> <span class="pre">FILE:LINE]</span> <span class="pre">[statement</span> <span class="pre">[statement</span> <span class="pre">...]]</span> </code> Don’t know much about debugging</p>
 </div>
 <div class="section" id="history-getting-history-of-input-commands">
-<span id="history"></span><h2>&lt;%history&gt;  Getting History of Input Commands<a class="headerlink" href="#history-getting-history-of-input-commands" title="Permalink to this headline">¶</a></h2>
+<span id="history"></span><h2><code class="docutils literal notranslate"><span class="pre">&lt;%history&gt;</span></code>  Getting History of Input Commands<a class="headerlink" href="#history-getting-history-of-input-commands" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">%history</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Returns the input commands that have been entered in the session<br />
 <code class="docutils literal notranslate"><span class="pre">-n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Prints line numbers for each input<br />
 <code class="docutils literal notranslate"><span class="pre">-o</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Also prints the output for each input<br />
@@ -299,15 +340,15 @@
 <code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">&lt;range&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Places a range on the number of lines displayed</p>
 </div>
 <div class="section" id="macro-create-a-macro-using-history">
-<span id="macro"></span><h2>&lt;%macro&gt;  Create a Macro Using History<a class="headerlink" href="#macro-create-a-macro-using-history" title="Permalink to this headline">¶</a></h2>
+<span id="macro"></span><h2><code class="docutils literal notranslate"><span class="pre">&lt;%macro&gt;</span></code>  Create a Macro Using History<a class="headerlink" href="#macro-create-a-macro-using-history" title="Permalink to this headline">¶</a></h2>
 <p>Defines a macro for future re-execution. Uses the line numbers of history.</p>
 <p><code class="docutils literal notranslate"><span class="pre">%macro</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;n1-n5,</span> <span class="pre">n7,</span> <span class="pre">n9&gt;</span> </code> Where n’s are line numbers in your history<br />
 <code class="docutils literal notranslate"><span class="pre">-r</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Use raw input<br />
 <code class="docutils literal notranslate"><span class="pre">-q</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Quiet</p>
 </div>
 <div class="section" id="timeit-time-execution-of-python-statements">
-<span id="timeit"></span><h2>&lt;%timeit&gt; Time Execution of Python Statements<a class="headerlink" href="#timeit-time-execution-of-python-statements" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">[-n</span> <span class="pre">&lt;N&gt;</span> <span class="pre">-r</span> <span class="pre">&lt;R&gt;</span> <span class="pre">[-t|-c]</span> <span class="pre">-q</span> <span class="pre">-p</span> <span class="pre">&lt;P&gt;</span> <span class="pre">-o]</span> </code> Inline Statement<br />
+<span id="timeit"></span><h2><code class="docutils literal notranslate"><span class="pre">&lt;%timeit&gt;</span></code> Time Execution of Python Statements<a class="headerlink" href="#timeit-time-execution-of-python-statements" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">[-n&lt;N&gt;</span> <span class="pre">-r&lt;R&gt;</span> <span class="pre">[-t|-c]</span> <span class="pre">-q</span> <span class="pre">-p&lt;P&gt;</span> <span class="pre">-o]</span> </code> Inline Statement<br />
 <code class="docutils literal notranslate"><span class="pre">%%timeit</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Cell Statement<br />
 <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">&lt;N&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Execute given statement N times in a loop.<br />
 <code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">&lt;R&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </code> Number of repititions of N loops. Default: 7<br />

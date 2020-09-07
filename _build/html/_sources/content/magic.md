@@ -1,6 +1,8 @@
 (magic)=
 # Magic Commands in Ipython
 
+<br />
+
 **Quick Reference Links to Page Content**
 
 - {ref}`bookmark`
@@ -13,7 +15,7 @@
 - {ref}`Table of Magic Commands for Cells <cell_table>`
 
 (bookmark)=
-## <%bookmark>  Bookmarks  
+## `<%bookmark>`  Bookmarks  
 
 Creates a bookmark, which is essentially a reference to a path location
 
@@ -24,7 +26,7 @@ Creates a bookmark, which is essentially a reference to a path location
 `%bookmark -r           ` Removes all bookmarks
 
 (cd)=
-## <%cd>  Changing Working Directory  
+## `<%cd>`  Changing Working Directory  
 
 Allows you to change your working directory for inputting and outputting files
 
@@ -38,19 +40,19 @@ The magic command **%dhist** can provide a nicely formatted list of directories 
 `cd -<n>               ` Will change directory to the corresponding integer n in the %dhist
 
 (config)=
-## <%config>  Changing Configuration of Ipython 
+## `<%config>`  Changing Configuration of Ipython 
 
 `%config                           ` Shows what classes in workspace are configurable  
 `%config <class>                   ` Shows what is configurable in the current class  
 `%config <class>.<trait> = <value> ` Sets a new configuration value for a trait
 
 (debug)=
-## <%debug>  Activating the Interactive Debugging Environment
+## `<%debug>`  Interactive Debugging Environment
 
 `%debug [--breakpoint FILE:LINE] [statement [statement ...]] ` Don't know much about debugging  
 
 (history)=
-## <%history>  Getting History of Input Commands
+## `<%history>`  Getting History of Input Commands
 
 `%history          ` Returns the input commands that have been entered in the session  
 `-n                ` Prints line numbers for each input  
@@ -61,7 +63,7 @@ The magic command **%dhist** can provide a nicely formatted list of directories 
 `-r <range>        ` Places a range on the number of lines displayed  
 
 (macro)=
-## <%macro>  Create a Macro Using History
+## `<%macro>`  Create a Macro Using History
 
 Defines a macro for future re-execution. Uses the line numbers of history.
 
@@ -70,9 +72,9 @@ Defines a macro for future re-execution. Uses the line numbers of history.
 `-q                            ` Quiet
 
 (timeit)=
-## <%timeit> Time Execution of Python Statements
+## `<%timeit>` Time Execution of Python Statements
 
-`%timeit [-n <N> -r <R> [-t|-c] -q -p <P> -o] ` Inline Statement  
+`%timeit [-n<N> -r<R> [-t|-c] -q -p<P> -o] ` Inline Statement  
 `%%timeit                                     ` Cell Statement  
 `-n <N>                                       ` Execute given statement N times in a loop.   
 `-r <R>                                       ` Number of repititions of N loops. Default: 7  

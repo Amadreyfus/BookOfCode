@@ -40,6 +40,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Programming Languages at a High Level" href="languages.html" />
     <link rel="prev" title="Magic Commands in Ipython" href="magic.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,7 +77,7 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Welcome to the Book of Code
+   Intro and Table of Contents
   </a>
  </li>
 </ul>
@@ -104,6 +105,16 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Python Coding Snippets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="languages.html">
+   Programming Languages at a High Level
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gluecode.html">
+   GlueCode
   </a>
  </li>
 </ul>
@@ -218,6 +229,23 @@
     <a class="reference internal nav-link" href="#list-operations">
      List Operations
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creating-a-list-of-consecutive-integers">
+       Creating a list of consecutive integers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#merging-a-list-with-its-reverse">
+       Merging a list with its reverse
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#checking-the-performance-of-insert-vs-append">
+       Checking the Performance of Insert Vs Append.
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#random-package">
@@ -227,6 +255,18 @@
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#basic-permutations-on-a-list">
        Basic permutations on a list
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slick-tricks-involving-sorting-and-parsing">
+     Slick Tricks Involving Sorting and Parsing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sorting-a-dictionary-by-a-specific-key">
+       Sorting a Dictionary by a Specific Key
       </a>
      </li>
     </ul>
@@ -253,15 +293,25 @@
 <li><p><a class="reference internal" href="#random-package"><span class="std std-ref">Random Package</span></a></p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="#sorting"><span class="std std-ref">Slick Sorting and Other Tricks</span></a></p></li>
 </ul>
 <div class="section" id="basic-python">
 <span id="id1"></span><h2>Basic Python<a class="headerlink" href="#basic-python" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="list-operations">
 <span id="list-ops"></span><h3>List Operations<a class="headerlink" href="#list-operations" title="Permalink to this headline">¶</a></h3>
-<p>Creating a list of consecutive integers</p>
+<br />
+<p><strong>Quick Ref</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#list-consec"><span class="std std-ref">List of Consecutive Integers</span></a></p></li>
+<li><p><a class="reference internal" href="#list-merge"><span class="std std-ref">Merging a List with its Reverse</span></a></p></li>
+<li><p><a class="reference internal" href="#list-perform"><span class="std std-ref">Performance of Append vs Insert</span></a></p></li>
+</ul>
+<div class="section" id="creating-a-list-of-consecutive-integers">
+<span id="list-consec"></span><h4>Creating a list of consecutive integers<a class="headerlink" href="#creating-a-list-of-consecutive-integers" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -271,7 +321,9 @@
 </div>
 </div>
 </div>
-<p>Merging a list with its reverse</p>
+</div>
+<div class="section" id="merging-a-list-with-its-reverse">
+<span id="list-merge"></span><h4>Merging a list with its reverse<a class="headerlink" href="#merging-a-list-with-its-reverse" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;SeanCahill&#39;</span>
@@ -285,6 +337,95 @@
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="checking-the-performance-of-insert-vs-append">
+<span id="list-perform"></span><h4>Checking the Performance of Insert Vs Append.<a class="headerlink" href="#checking-the-performance-of-insert-vs-append" title="Permalink to this headline">¶</a></h4>
+<p><strong>Appending is generally a much faster operation than arbitrary insertion.</strong></p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although inserting at the <code class="docutils literal notranslate"><span class="pre">[-1]</span></code>
+is of a comparable runtime.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c0</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">t_insert</span> <span class="o">=</span> <span class="o">%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">n1000</span> <span class="o">-</span><span class="n">r100</span> <span class="n">c0</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The slowest run took 138.95 times longer than the fastest. This could mean that an intermediate result is being cached.
+13.7 µs ± 7.87 µs per loop (mean ± std. dev. of 100 runs, 1000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">t_append</span> <span class="o">=</span> <span class="o">%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">n1000</span> <span class="o">-</span><span class="n">r100</span> <span class="n">c1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>45.1 ns ± 23.3 ns per loop (mean ± std. dev. of 100 runs, 1000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<br />
+Let us see the the ratio of execution times for these two cell blocks:  
+<br /><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Asserting that both lists are equivalent</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">c1</span><span class="p">)]),</span> <span class="s2">&quot;Answers differed?&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;==&gt; (insert time)/(append time) for 1000 operations: ~</span><span class="si">{</span><span class="n">t_insert</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">t_append</span><span class="o">.</span><span class="n">average</span><span class="si">}</span><span class="s1">x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>==&gt; (insert time)/(append time) for 1000 operations: ~303.14668837778464x
+</pre></div>
+</div>
+</div>
+</div>
+<br />
+Here is the same thing with more loops to demonstrate scaling. That is
+as the number of ops grows, so will execution time.
+<br />
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Same experiment as above, but triple the ops</span>
+<span class="n">c0</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">t_insert</span> <span class="o">=</span> <span class="o">%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">n3000</span> <span class="o">-</span><span class="n">r100</span> <span class="n">c0</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 40.7 µs ± 23.5 µs per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
+</pre></div>
+</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Append the same 100,000 values at the end of the list</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">t_append</span> <span class="o">=</span> <span class="o">%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">n3000</span> <span class="o">-</span><span class="n">r100</span> <span class="n">c1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 41.1 ns ± 10.9 ns per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
+</pre></div>
+</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify that the outputs of the above are the same</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">c1</span><span class="p">)]),</span> <span class="s2">&quot;Answers differed?&quot;</span>
+
+<span class="c1"># Report the ratio of execution times</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">==&gt; (insert time) / (append time) for 3,000 ops: ~ </span><span class="si">{</span><span class="n">t_insert</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">t_append</span><span class="o">.</span><span class="n">average</span><span class="si">}</span><span class="s2">x&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(insert time) / (append time) for 3,000 ops: ~ <span class="pasted-text">989.6944691348043</span>x</p>
 </div>
 </div>
 <div class="section" id="random-package">
@@ -301,10 +442,23 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[5, 4, 3, 8, 9, 6, 2, 1, 7, 0]
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[0, 3, 9, 2, 7, 8, 5, 6, 1, 4]
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="slick-tricks-involving-sorting-and-parsing">
+<span id="sorting"></span><h3>Slick Tricks Involving Sorting and Parsing<a class="headerlink" href="#slick-tricks-involving-sorting-and-parsing" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sorting-a-dictionary-by-a-specific-key">
+<span id="sort-dic-by-key"></span><h4>Sorting a Dictionary by a Specific Key<a class="headerlink" href="#sorting-a-dictionary-by-a-specific-key" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;first&#39;</span><span class="p">:</span><span class="s1">&#39;Guido&#39;</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">:</span><span class="s1">&#39;Van Rossum&#39;</span><span class="p">,</span> <span class="s1">&#39;YOB&#39;</span><span class="p">:</span><span class="mi">1956</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;first&#39;</span><span class="p">:</span><span class="s1">&#39;Grace&#39;</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">:</span><span class="s1">&#39;Hopper&#39;</span><span class="p">,</span>     <span class="s1">&#39;YOB&#39;</span><span class="p">:</span><span class="mi">1906</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;first&#39;</span><span class="p">:</span><span class="s1">&#39;Alan&#39;</span><span class="p">,</span>  <span class="s1">&#39;last&#39;</span><span class="p">:</span><span class="s1">&#39;Turing&#39;</span><span class="p">,</span>     <span class="s1">&#39;YOB&#39;</span><span class="p">:</span><span class="mi">1912</span><span class="p">}]</span>
+
+<span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;YOB&#39;</span><span class="p">])</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -340,6 +494,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="magic.html" title="previous page">Magic Commands in Ipython</a>
+    <a class='right-next' id="next-link" href="languages.html" title="next page">Programming Languages at a High Level</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

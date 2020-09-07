@@ -9,6 +9,7 @@
 - {ref}`Basic Myst Syntax <basic_myst>`
 - {ref}`Useful MyST Examples and Notes <myst_ex>`
 - {ref}`Commmon Directives and Their Parameters <common_dir>`
+- {ref}`Glue Directive <glue_dir>`
 
 (what_is_myst)=
 ## What is MyST?
@@ -420,8 +421,11 @@ This is a dropdown argument for class!
 .
 ```
 ````
+(glue_dir)=
+### The Glue Directive
 
 
 
 ```{bibliography} references.bib
 ```
+
