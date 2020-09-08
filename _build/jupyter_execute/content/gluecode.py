@@ -20,3 +20,14 @@ assert all([a == b for a, b in zip(c0, c1)]), "Answers differed?"
 print(f"\n==> (insert time) / (append time) for 300,000 ops: ~ {t_insert.average/t_append.average}x")
 
 glue('t_ratio', (t_insert.average/t_append.average))
+
+import numpy as np
+import matplotlib.pyplot as plt
+plt.style.use('ggplot') # Displays graph in the style of R's ggplot
+
+x = np.linspace(0,10)
+y = np.sin(x)
+fig = plt.plot(x,y)
+
+glue('basic_sin', fig, display=False)
+

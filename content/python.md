@@ -14,6 +14,8 @@ kernelspec:
 (python)=
 # Python 3
 
+[Link to Python3 documentation](https://docs.python.org/3/)
+
 <br />
 
 **Quick References to Page Contents**
@@ -26,7 +28,14 @@ kernelspec:
   - {ref}`Lists <lists>`
   - {ref}`Tuples <tuples>`
   - {ref}`Dictionaries`
-- {ref}`Control Flow <control_flow>`  
+    - {ref}`Default Dictionary <default_dict>`
+- {ref}`Control Flow <control_flow>` 
+  - {ref}`Assertions <assertions>`
+  - {ref}`Lambda Functions <lambda>`
+  - {ref}`Loops <loops>`
+   - {ref}`Some Useful Basic Iterators <useful_iterators>`
+  - {ref}`Itertools <itertools>` 
+- {ref}`Data Science Tools and Packages <data_sci>`  
   
 
 
@@ -183,10 +192,20 @@ in order to "change" the object, you must create a new one incorporating the old
 
 A dictionary is map of unique keys to values. Like set elements, keys must be unique.
 
+(default_dict)=
+#### Default Dictionary from Collections
+
+[Documentation for Default Dictionary](https://docs.python.org/3/library/collections.html?highlight=defaultdict#collections.defaultdict)
+
+```python
+from collections import defaultdict
+d = defaultdict(int) #Argument can be list, dict, set and initializes with empty or 0.
+```
+
 (control_flow)=
 ## Control Flow
 
-(assertions) = 
+(assertions)= 
 ### Assertions
 
 Assertions provide a way of checking if variables have certain values or objects meet certain conditions which
@@ -240,6 +259,132 @@ be found {ref}`here <sort_dic_by_key>`.
 ```python
 sorted(data, key= lambda x: x['key_value'])
 ```
+````
+
+(loops)=
+### For Loops and While Loops
+
+Easy for loop example
+
+```{code-cell} ipython
+for i in range(5):
+    print(i, end= ' ') #prints all on same line
+```
+
+This code takes advantage of the __iter__ atrribute of range. There is a special syntax called **\*i syntax** that allows 
+you to convert an iterator into an argument tuple
+
+```{code-cell} ipython
+print(range(5))
+print(*range(5))
+print(*enumerate(range(5)))
+```
+
+(iterators)=
+### Iterators
+
+An iterator is a special type of object that produces a sequence of values. It is an object that contains a 
+countable number of values which can be iterated upon (traversed through one by one). Technically, it is an 
+object which implements an iterator protocol which consists of the methods `__iter__()` and `__next__()`
+
+Here is an example that illustrates this property:
+
+```{code-cell} ipython
+mytuple = ('a','b','c','d')
+myiter = iter(mytuple)
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+```
+
+````{margin}
+```{note}
+An interable is any object that can return an iterator: iter(object)
+```
+````
+
+(useful_iterators)=
+#### Some useful iterators 
+
+`enumerate(x)` produces the elements of x along with running count starting at zero
+
+```{code-cell} ipython
+for i, l in enumerate('Sean'):
+    print(f'{i}: {l}')
+```
+
+`zip()` produces tuples of elements taken from its input iterators
+
+```{code-cell} ipython
+for a, b in zip(range(3), ['a', 'b', 'c']):
+    print(a, "=>", b)
+```
+
+`map()` an iterator that first applies a function to a given value
+
+```{code-cell} ipython
+# find the first 10 square numbers
+square = lambda x: x ** 2
+for val in map(square, range(10)):
+    print(val, end=' ')
+```
+
+`filter()` an iterator that only yields values for which a given predicate function executes to `True`
+
+```{code-cell} ipython
+# find values up to 10 for which x % 2 is zero
+is_even = lambda x: x % 2 == 0
+print(is_even(4), is_even(7), "\n")
+
+for val in filter(is_even, range(10)):
+    print(val, end=' ')
+```
+(itertools)=
+### Itertools
+
+The **`Itertools`** module implements a number of iterator building blocks that standardize a core set of fast, memory-efficient tools
+that are useful by themselves, or in combination
+
+[Link to `itertools` documentation][itertools_link]
+
+Example using combinations(), a combinatoric iterator:
+
+```{code-cell} ipython
+zoo = {'cat', 'dog', 'emu', 'zebra'}  # a set of animals
+
+from itertools import combinations    # Try also: `permutations`
+for x in combinations(zoo, 3):      
+    print(x)
+```
+
+[itertools_link]: https://docs.python.org/3/library/itertools.html
+
+(data_sci)=
+## Data Science Tools
+
+(numpy)=
+### Numpy
+
+(pandas)=
+### Pandas
+
+(matplotlib)=
+#### Matplotlib
+
+- [Matplotlib gallery](https://matplotlib.org/gallery.html)
+
+```{code-cell} ipython
+%matplotlib inline
+import numpy as np
+import matplotlib.pyplot as plt
+plt.style.use('ggplot') # Displays graph in the style of R's ggplot
+
+x = np.linspace(0,10)
+y = np.sin(x)
+plt.plot(x,y)
+```
+
+
 
 
   

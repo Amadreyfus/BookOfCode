@@ -18,6 +18,7 @@ kernelspec:
 
 - {ref}`Basic Python <basic_python>`
   -  {ref}`List Operations <list_ops>`
+  -  {ref}`Dictionary Operations <dict_ops>`
   -  {ref}`Random Package <random_package>`
 - {ref}`Slick Sorting and Other Tricks <sorting>` 
 
@@ -117,6 +118,15 @@ print(f"\n==> (insert time) / (append time) for 3,000 ops: ~ {t_insert.average/t
 
 (insert time) / (append time) for 3,000 ops: ~ {glue:text}`t_ratio`x
 
+(dict_ops)=
+### Dictionary Operations
+
+#### Creating a Dictionary using enumerate() iterator
+
+```{code-cell} ipython
+D = {k: v for v, k in enumerate('abcdefghijk')}
+print(D)
+```
 
 
 
@@ -141,7 +151,7 @@ print(g)
 (sort_dic_by_key)=
 #### Sorting a Dictionary by a Specific Key
 
-```{code-block} ipython
+```{code-cell} ipython
 data = [{'first':'Guido', 'last':'Van Rossum', 'YOB':1956},
         {'first':'Grace', 'last':'Hopper',     'YOB':1906},
         {'first':'Alan',  'last':'Turing',     'YOB':1912}]

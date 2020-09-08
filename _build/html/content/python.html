@@ -283,6 +283,13 @@
     <a class="reference internal nav-link" href="#dictionaries">
      Dictionaries
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#default-dictionary-from-collections">
+       Default Dictionary from Collections
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -301,6 +308,52 @@
      Lambda Functions (Anonymous Functions)
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-loops-and-while-loops">
+     For Loops and While Loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterators">
+     Iterators
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#some-useful-iterators">
+       Some useful iterators
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#itertools">
+     Itertools
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-science-tools">
+   Data Science Tools
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy">
+     Numpy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas">
+     Pandas
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matplotlib">
+       Matplotlib
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
 </ul>
@@ -315,6 +368,7 @@
                 
   <div class="section" id="python-3">
 <span id="python"></span><h1>Python 3<a class="headerlink" href="#python-3" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://docs.python.org/3/">Link to Python3 documentation</a></p>
 <br />
 <p><strong>Quick References to Page Contents</strong></p>
 <ul class="simple">
@@ -329,10 +383,23 @@
 <ul>
 <li><p><a class="reference internal" href="#lists"><span class="std std-ref">Lists</span></a></p></li>
 <li><p><a class="reference internal" href="#tuples"><span class="std std-ref">Tuples</span></a></p></li>
-<li><p><a class="reference internal" href="#dictionaries"><span class="std std-ref">Dictionaries</span></a></p></li>
+<li><p><a class="reference internal" href="#dictionaries"><span class="std std-ref">Dictionaries</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#default-dict"><span class="std std-ref">Default Dictionary</span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#control-flow"><span class="std std-ref">Control Flow</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#control-flow"><span class="std std-ref">Control Flow</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#assertions"><span class="std std-ref">Assertions</span></a></p></li>
+<li><p><a class="reference internal" href="#lambda"><span class="std std-ref">Lambda Functions</span></a></p></li>
+<li><p><a class="reference internal" href="#loops"><span class="std std-ref">Loops</span></a></p></li>
+<li><p><a class="reference internal" href="#useful-iterators"><span class="std std-ref">Some Useful Basic Iterators</span></a></p></li>
+<li><p><a class="reference internal" href="#itertools"><span class="std std-ref">Itertools</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#data-sci"><span class="std std-ref">Data Science Tools and Packages</span></a></p></li>
 </ul>
 <br />
 <div class="section" id="primitive-types-in-python">
@@ -564,13 +631,20 @@ in order to “change” the object, you must create a new one incorporating the
 <div class="section" id="dictionaries">
 <span id="id5"></span><h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
 <p>A dictionary is map of unique keys to values. Like set elements, keys must be unique.</p>
+<div class="section" id="default-dictionary-from-collections">
+<span id="default-dict"></span><h4>Default Dictionary from Collections<a class="headerlink" href="#default-dictionary-from-collections" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://docs.python.org/3/library/collections.html?highlight=defaultdict#collections.defaultdict">Documentation for Default Dictionary</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1">#Argument can be list, dict, set and initializes with empty or 0.</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="control-flow">
 <span id="id6"></span><h2>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h2>
-<p>(assertions) =</p>
 <div class="section" id="assertions">
-<h3>Assertions<a class="headerlink" href="#assertions" title="Permalink to this headline">¶</a></h3>
+<span id="id7"></span><h3>Assertions<a class="headerlink" href="#assertions" title="Permalink to this headline">¶</a></h3>
 <p>Assertions provide a way of checking if variables have certain values or objects meet certain conditions which
 minimizes the risk of an error in the code. General form:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="o">&lt;</span><span class="n">boolean</span> <span class="n">condition</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">error</span> <span class="n">string</span><span class="o">&gt;</span>
@@ -610,10 +684,210 @@ traceback will not contain as much information</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Lambda functions can prove very useful by providing functionaly in normally tricky spots. A
-good example is working as a key to sort a dictionary by specific values. A more fleshed out examples can
-be found <a class="reference internal" href="pysnippets.html#sort-dic-by-key"><span class="std std-ref">here</span></a></p>
+good example is working as a key to sort a dictionary by specific values. A more fleshed out example can
+be found <a class="reference internal" href="pysnippets.html#sort-dic-by-key"><span class="std std-ref">here</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;key_value&#39;</span><span class="p">])</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="for-loops-and-while-loops">
+<span id="loops"></span><h3>For Loops and While Loops<a class="headerlink" href="#for-loops-and-while-loops" title="Permalink to this headline">¶</a></h3>
+<p>Easy for loop example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="c1">#prints all on same line</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0 1 2 3 4 
+</pre></div>
+</div>
+</div>
+</div>
+<p>This code takes advantage of the <strong>iter</strong> atrribute of range. There is a special syntax called <strong>*i syntax</strong> that allows
+you to convert an iterator into an argument tuple</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>range(0, 5)
+0 1 2 3 4
+(0, 0) (1, 1) (2, 2) (3, 3) (4, 4)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="iterators">
+<span id="id8"></span><h3>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h3>
+<p>An iterator is a special type of object that produces a sequence of values. It is an object that contains a
+countable number of values which can be iterated upon (traversed through one by one). Technically, it is an
+object which implements an iterator protocol which consists of the methods <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> and <code class="docutils literal notranslate"><span class="pre">__next__()</span></code></p>
+<p>Here is an example that illustrates this property:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mytuple</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="n">myiter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">mytuple</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">myiter</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">myiter</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">myiter</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>a
+b
+c
+</pre></div>
+</div>
+</div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An interable is any object that can return an iterator: iter(object)</p>
+</div>
+</div>
+<div class="section" id="some-useful-iterators">
+<span id="useful-iterators"></span><h4>Some useful iterators<a class="headerlink" href="#some-useful-iterators" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">enumerate(x)</span></code> produces the elements of x along with running count starting at zero</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s1">&#39;Sean&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">l</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0: S
+1: e
+2: a
+3: n
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">zip()</span></code> produces tuples of elements taken from its input iterators</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;=&gt;&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0 =&gt; a
+1 =&gt; b
+2 =&gt; c
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">map()</span></code> an iterator that first applies a function to a given value</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the first 10 square numbers</span>
+<span class="n">square</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0 1 4 9 16 25 36 49 64 81 
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">filter()</span></code> an iterator that only yields values for which a given predicate function executes to <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># find values up to 10 for which x % 2 is zero</span>
+<span class="n">is_even</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_even</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">is_even</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">filter</span><span class="p">(</span><span class="n">is_even</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>True False 
+
+0 2 4 6 8 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="itertools">
+<span id="id9"></span><h3>Itertools<a class="headerlink" href="#itertools" title="Permalink to this headline">¶</a></h3>
+<p>The <strong><code class="docutils literal notranslate"><span class="pre">Itertools</span></code></strong> module implements a number of iterator building blocks that standardize a core set of fast, memory-efficient tools
+that are useful by themselves, or in combination</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/itertools.html">Link to <code class="docutils literal notranslate"><span class="pre">itertools</span></code> documentation</a></p>
+<p>Example using combinations(), a combinatoric iterator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">zoo</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;emu&#39;</span><span class="p">,</span> <span class="s1">&#39;zebra&#39;</span><span class="p">}</span>  <span class="c1"># a set of animals</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>    <span class="c1"># Try also: `permutations`</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">zoo</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>      
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(&#39;zebra&#39;, &#39;dog&#39;, &#39;emu&#39;)
+(&#39;zebra&#39;, &#39;dog&#39;, &#39;cat&#39;)
+(&#39;zebra&#39;, &#39;emu&#39;, &#39;cat&#39;)
+(&#39;dog&#39;, &#39;emu&#39;, &#39;cat&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-science-tools">
+<span id="data-sci"></span><h2>Data Science Tools<a class="headerlink" href="#data-science-tools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="numpy">
+<span id="id10"></span><h3>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="pandas">
+<span id="id11"></span><h3>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="matplotlib">
+<span id="id12"></span><h4>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/gallery.html">Matplotlib gallery</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span> <span class="c1"># Displays graph in the style of R&#39;s ggplot</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f86e46dea60&gt;]
+</pre></div>
+</div>
+<img alt="../_images/python_23_1.png" src="../_images/python_23_1.png" />
+</div>
 </div>
 </div>
 </div>
