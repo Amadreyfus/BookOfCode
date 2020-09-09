@@ -27,6 +27,7 @@ instructions can be found at [https://beta.jupyterbook.org/intro.html][jb].
 
 **Quick references to various sections.**
 
+- {ref}` Building a Jupyter Book <building_book>`
 - {ref}` Myst Markdown <MyST>`
 - {ref}` Git Commands <git>`
 - {ref}` Python 3 <python>`

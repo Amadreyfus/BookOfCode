@@ -83,6 +83,11 @@
 </ul>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="buildingbook.html">
+   Building A Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="myst.html">
    MyST Markdown
   </a>
@@ -371,8 +376,8 @@ is of a comparable runtime.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The slowest run took 138.31 times longer than the fastest. This could mean that an intermediate result is being cached.
-13.6 µs ± 7.84 µs per loop (mean ± std. dev. of 100 runs, 1000 loops each)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The slowest run took 131.29 times longer than the fastest. This could mean that an intermediate result is being cached.
+13.7 µs ± 7.86 µs per loop (mean ± std. dev. of 100 runs, 1000 loops each)
 </pre></div>
 </div>
 </div>
@@ -385,7 +390,7 @@ is of a comparable runtime.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>45.7 ns ± 22.1 ns per loop (mean ± std. dev. of 100 runs, 1000 loops each)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>44.8 ns ± 16.7 ns per loop (mean ± std. dev. of 100 runs, 1000 loops each)
 </pre></div>
 </div>
 </div>
@@ -402,7 +407,7 @@ Let us see the the ratio of execution times for these two cell blocks:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>==&gt; (insert time)/(append time) for 1000 operations: ~297.86250884696454x
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>==&gt; (insert time)/(append time) for 1000 operations: ~305.343630017281x
 </pre></div>
 </div>
 </div>
@@ -417,7 +422,7 @@ as the number of ops grows, so will execution time.
 </pre></div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 40.9 µs ± 23.6 µs per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 40.7 µs ± 23.4 µs per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
 </pre></div>
 </div>
 </div>
@@ -427,7 +432,7 @@ as the number of ops grows, so will execution time.
 </pre></div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 42.9 ns ± 15 ns per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 42.7 ns ± 13 ns per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
 </pre></div>
 </div>
 </div>
@@ -438,7 +443,7 @@ as the number of ops grows, so will execution time.
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">==&gt; (insert time) / (append time) for 3,000 ops: ~ </span><span class="si">{</span><span class="n">t_insert</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">t_append</span><span class="o">.</span><span class="n">average</span><span class="si">}</span><span class="s2">x&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(insert time) / (append time) for 3,000 ops: ~ <span class="pasted-text">953.8568040290058</span>x</p>
+<p>(insert time) / (append time) for 3,000 ops: ~ <span class="pasted-text">953.4164259679214</span>x</p>
 </div>
 </div>
 <div class="section" id="dictionary-operations">
@@ -474,7 +479,7 @@ as the number of ops grows, so will execution time.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[9, 3, 4, 7, 5, 2, 6, 8, 1, 0]
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[0, 3, 4, 7, 2, 9, 8, 5, 6, 1]
 </pre></div>
 </div>
 </div>

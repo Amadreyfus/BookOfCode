@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Intro and Table of Contents &#8212; Book of Code</title>
+    <title>Building A Jupyter Book &#8212; Book of Code</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,7 +40,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Building A Jupyter Book" href="buildingbook.html" />
+    <link rel="next" title="MyST Markdown" href="myst.html" />
+    <link rel="prev" title="Intro and Table of Contents" href="intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -75,14 +76,14 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="#">
+  <a class="reference internal" href="intro.html">
    Intro and Table of Contents
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="buildingbook.html">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Building A Jupyter Book
   </a>
  </li>
@@ -163,7 +164,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/content/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/content/buildingbook.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -205,9 +206,26 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#acknowledgements">
-   Acknowledgements
+  <a class="reference internal nav-link" href="#basic-first-steps">
+   Basic first steps
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creation-of-the-book">
+     Creation of the Book
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuration-of-the-book">
+     Configuration of the Book
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-of-contents">
+     Table of Contents
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -219,38 +237,23 @@
         
               <div>
                 
-  <div class="section" id="intro-and-table-of-contents">
-<h1>Intro and Table of Contents<a class="headerlink" href="#intro-and-table-of-contents" title="Permalink to this headline">¶</a></h1>
-<br />
-<br />
-<p>This book is primarily meant as a reference for myself in order to collect and
-organize the useful coding syntax I am constantly forgetting across all
-of the different languages I encounter.</p>
-<p>Essentially, it is a collection of cheat sheets that takes advantage of the
-functionality of Jupyter Book in order to create a comprehensive
-and easy to manage repository of commands and syntax with explanations.</p>
-<p>This will be a work in progress as I continuously add to this project
-and reorganize as my understanding of jupyter-book grows.</p>
-<p>It is also an inherently selfish document in that I will only consider my frame
-of reference in populating and organizing it. As a result, it will be idiosyncratic
-in terms of its content and layout, although, hopefully, not egregiously so.</p>
-<p>For anyone else interested in creating their own jupter-book,
-instructions can be found at <a class="reference external" href="https://beta.jupyterbook.org/intro.html">https://beta.jupyterbook.org/intro.html</a>.</p>
-<br />
-<p><strong>Quick references to various sections.</strong></p>
-<ul class="simple">
-<li><p><a class="reference internal" href="buildingbook.html#building-book"><span class="std std-ref"> Building a Jupyter Book</span></a></p></li>
-<li><p><a class="reference internal" href="myst.html#myst"><span class="std std-ref"> Myst Markdown</span></a></p></li>
-<li><p><a class="reference internal" href="git.html#git"><span class="std std-ref"> Git Commands</span></a></p></li>
-<li><p><a class="reference internal" href="python.html#python"><span class="std std-ref"> Python 3</span></a></p></li>
-<li><p><a class="reference internal" href="magic.html#magic"><span class="std std-ref"> Magic Commands in IPython</span></a></p></li>
-<li><p><a class="reference internal" href="pysnippets.html#snippets"><span class="std std-ref"> Python Coding Snippets</span></a></p></li>
-<li><p><a class="reference internal" href="languages.html#languages"><span class="std std-ref"> Programming Languages at a High Level</span></a></p></li>
-</ul>
-<div class="section" id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
-<p>A big thank you to the <a class="reference external" href="https://executablebooks.org/en/latest/">Executable Book Project</a></p>
-<div class="toctree-wrapper compound">
+  <div class="section" id="building-a-jupyter-book">
+<span id="building-book"></span><h1>Building A Jupyter Book<a class="headerlink" href="#building-a-jupyter-book" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-first-steps">
+<span id="first-steps"></span><h2>Basic first steps<a class="headerlink" href="#basic-first-steps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creation-of-the-book">
+<span id="creation"></span><h3>Creation of the Book<a class="headerlink" href="#creation-of-the-book" title="Permalink to this headline">¶</a></h3>
+<p>To create a basic template of a book in the current folder use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">jupter-book</span> <span class="pre">create</span> <span class="pre">mybookname</span></code></p>
+</div>
+<div class="section" id="configuration-of-the-book">
+<span id="configuration"></span><h3>Configuration of the Book<a class="headerlink" href="#configuration-of-the-book" title="Permalink to this headline">¶</a></h3>
+<p>The books configuration is largely controlled by the <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> file in the books directory</p>
+<p><a class="reference external" href="https://beta.jupyterbook.org/customize/config.html">Link to configuration options</a></p>
+<p><a class="reference external" href="https://beta.jupyterbook.org/advanced/sphinx.html#advanced-sphinx-config">Link to custom configuration options</a></p>
+</div>
+<div class="section" id="table-of-contents">
+<span id="tableofcontents"></span><h3>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -283,7 +286,8 @@ instructions can be found at <a class="reference external" href="https://beta.ju
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="buildingbook.html" title="next page">Building A Jupyter Book</a>
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Intro and Table of Contents</a>
+    <a class='right-next' id="next-link" href="myst.html" title="next page">MyST Markdown</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
