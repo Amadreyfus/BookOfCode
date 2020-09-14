@@ -20,7 +20,8 @@ kernelspec:
   -  {ref}`List Operations <list_ops>`
   -  {ref}`Dictionary Operations <dict_ops>`
   -  {ref}`Random Package <random_package>`
-- {ref}`Slick Sorting and Other Tricks <sorting>` 
+- {ref}`Slick Sorting and Other Tricks <sorting>`
+- {ref}`basic_mapping`
 
 (basic_python)=
 ## Basic Python
@@ -145,6 +146,14 @@ shuffle(g)
 print(g)
 ```
 
+(random_choice)=
+#### Using Random Choice to Randomize Signs
+
+```{code-cell} ipython
+from random import choice
+print(choice([-1,1]))
+```
+
 (sorting)=
 ### Slick Tricks Involving Sorting and Parsing
 
@@ -158,3 +167,14 @@ data = [{'first':'Guido', 'last':'Van Rossum', 'YOB':1956},
 
 sorted(data, key=lambda x: x['YOB'])
 ```
+
+(basic_mapping)=
+### Mapping Between Basic Data Types
+
+(base36)=
+#### Using Alphanumeric Bases for Base 36
+
+```python
+ord(str) - ord('a') # returns the base value of a letter
+```
+

@@ -274,6 +274,11 @@
        Basic permutations on a list
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-random-choice-to-randomize-signs">
+       Using Random Choice to Randomize Signs
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -284,6 +289,18 @@
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#sorting-a-dictionary-by-a-specific-key">
        Sorting a Dictionary by a Specific Key
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mapping-between-basic-data-types">
+     Mapping Between Basic Data Types
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-alphanumeric-bases-for-base-36">
+       Using Alphanumeric Bases for Base 36
       </a>
      </li>
     </ul>
@@ -312,6 +329,7 @@
 </ul>
 </li>
 <li><p><a class="reference internal" href="#sorting"><span class="std std-ref">Slick Sorting and Other Tricks</span></a></p></li>
+<li><p><a class="reference internal" href="#basic-mapping"><span class="std std-ref">Mapping Between Basic Data Types</span></a></p></li>
 </ul>
 <div class="section" id="basic-python">
 <span id="id1"></span><h2>Basic Python<a class="headerlink" href="#basic-python" title="Permalink to this headline">¶</a></h2>
@@ -376,8 +394,8 @@ is of a comparable runtime.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The slowest run took 131.29 times longer than the fastest. This could mean that an intermediate result is being cached.
-13.7 µs ± 7.86 µs per loop (mean ± std. dev. of 100 runs, 1000 loops each)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The slowest run took 148.99 times longer than the fastest. This could mean that an intermediate result is being cached.
+14.7 µs ± 8.99 µs per loop (mean ± std. dev. of 100 runs, 1000 loops each)
 </pre></div>
 </div>
 </div>
@@ -390,7 +408,7 @@ is of a comparable runtime.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>44.8 ns ± 16.7 ns per loop (mean ± std. dev. of 100 runs, 1000 loops each)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>42.3 ns ± 16.6 ns per loop (mean ± std. dev. of 100 runs, 1000 loops each)
 </pre></div>
 </div>
 </div>
@@ -407,7 +425,7 @@ Let us see the the ratio of execution times for these two cell blocks:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>==&gt; (insert time)/(append time) for 1000 operations: ~305.343630017281x
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>==&gt; (insert time)/(append time) for 1000 operations: ~347.78511092289506x
 </pre></div>
 </div>
 </div>
@@ -422,7 +440,7 @@ as the number of ops grows, so will execution time.
 </pre></div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 40.7 µs ± 23.4 µs per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 40.7 µs ± 23.5 µs per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
 </pre></div>
 </div>
 </div>
@@ -432,7 +450,7 @@ as the number of ops grows, so will execution time.
 </pre></div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 42.7 ns ± 13 ns per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 48.2 ns ± 23.2 ns per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
 </pre></div>
 </div>
 </div>
@@ -443,7 +461,7 @@ as the number of ops grows, so will execution time.
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">==&gt; (insert time) / (append time) for 3,000 ops: ~ </span><span class="si">{</span><span class="n">t_insert</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">t_append</span><span class="o">.</span><span class="n">average</span><span class="si">}</span><span class="s2">x&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(insert time) / (append time) for 3,000 ops: ~ <span class="pasted-text">953.4164259679214</span>x</p>
+<p>(insert time) / (append time) for 3,000 ops: ~ <span class="pasted-text">845.5917268885116</span>x</p>
 </div>
 </div>
 <div class="section" id="dictionary-operations">
@@ -479,7 +497,23 @@ as the number of ops grows, so will execution time.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[0, 3, 4, 7, 2, 9, 8, 5, 6, 1]
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[7, 8, 5, 9, 4, 6, 0, 3, 2, 1]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-random-choice-to-randomize-signs">
+<span id="random-choice"></span><h4>Using Random Choice to Randomize Signs<a class="headerlink" href="#using-random-choice-to-randomize-signs" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">choice</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -507,6 +541,15 @@ as the number of ops grows, so will execution time.
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="mapping-between-basic-data-types">
+<span id="basic-mapping"></span><h3>Mapping Between Basic Data Types<a class="headerlink" href="#mapping-between-basic-data-types" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="using-alphanumeric-bases-for-base-36">
+<span id="base36"></span><h4>Using Alphanumeric Bases for Base 36<a class="headerlink" href="#using-alphanumeric-bases-for-base-36" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="c1"># returns the base value of a letter</span>
+</pre></div>
 </div>
 </div>
 </div>

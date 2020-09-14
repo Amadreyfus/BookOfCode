@@ -226,6 +226,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-very-basic-and-useful-commands">
+   Some Very Basic and Useful Commands
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#printing-the-current-python-version-of-kernel">
+     Printing the Current Python Version of Kernel
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#primitive-types-in-python">
    Primitive Types in Python
   </a>
@@ -243,6 +255,18 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#strings">
      Strings
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#getting-a-string-with-all-possible-punctuation-characters">
+       Getting a String with All Possible Punctuation Characters
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#floats">
+     Floats
     </a>
    </li>
   </ul>
@@ -361,6 +385,23 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-math-in-python">
+   Working with Math in Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pretty-printing-math-notation">
+     Pretty Printing Math Notation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-for-drawing-diagrams-with-vectors">
+     Code for Drawing Diagrams with Vectors
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
         </nav>
@@ -377,11 +418,13 @@
 <br />
 <p><strong>Quick References to Page Contents</strong></p>
 <ul class="simple">
+<li><p><a class="reference internal" href="#verybasics"><span class="std std-ref">Some Very Basic and Useful Commands</span></a></p></li>
 <li><p><a class="reference internal" href="#primitive"><span class="std std-ref">Primitive Types</span></a></p>
 <ul>
 <li><p><a class="reference internal" href="#type-check"><span class="std std-ref">Type Checking Operations</span></a></p></li>
 <li><p><a class="reference internal" href="#basic-math"><span class="std std-ref">Basic Mathematical Operations</span></a></p></li>
 <li><p><a class="reference internal" href="#strings"><span class="std std-ref">Strings</span></a></p></li>
+<li><p><a class="reference internal" href="#floats"><span class="std std-ref">Floats</span></a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="#collections"><span class="std std-ref">Collections</span></a></p>
@@ -404,9 +447,26 @@
 <li><p><a class="reference internal" href="#itertools"><span class="std std-ref">Itertools</span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#data-sci"><span class="std std-ref">Data Science Tools and Packages</span></a></p></li>
+<li><p><a class="reference internal" href="#data-sci"><span class="std std-ref">Data Science Tools and Packages</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#pandas"><span class="std std-ref">Pandas</span></a></p></li>
+<li><p><a class="reference internal" href="#numpy"><span class="std std-ref">Numpy</span></a></p></li>
+<li><p><a class="reference internal" href="#matplotlib"><span class="std std-ref">MatPlotLib</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#mathstuff"><span class="std std-ref">Working with Math in Python</span></a></p></li>
 </ul>
 <br />
+<div class="section" id="some-very-basic-and-useful-commands">
+<span id="verybasics"></span><h2>Some Very Basic and Useful Commands<a class="headerlink" href="#some-very-basic-and-useful-commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="printing-the-current-python-version-of-kernel">
+<h3>Printing the Current Python Version of Kernel<a class="headerlink" href="#printing-the-current-python-version-of-kernel" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span> <span class="c1">#Displays current version of python kernel</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="primitive-types-in-python">
 <span id="primitive"></span><h2>Primitive Types in Python<a class="headerlink" href="#primitive-types-in-python" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
@@ -534,12 +594,62 @@
 </div>
 <div class="section" id="strings">
 <span id="id1"></span><h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="getting-a-string-with-all-possible-punctuation-characters">
+<h4>Getting a String with All Possible Punctuation Characters<a class="headerlink" href="#getting-a-string-with-all-possible-punctuation-characters" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>!&quot;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="floats">
+<span id="id2"></span><h3>Floats<a class="headerlink" href="#floats" title="Permalink to this headline">¶</a></h3>
+<p>The default IEEE 754 format for floats in Python is double precision (64 bits) which allocates:</p>
+<ul class="simple">
+<li><p>sign : 1 bit</p></li>
+<li><p>significand : 53 bits</p></li>
+<li><p>exponents : 11 bits</p></li>
+</ul>
+<p>into a tuple that looks something like:  <span class="math notranslate nohighlight">\((\pm, [\![s]\!]_b, x)\)</span></p>
+<p><br />
+To inspect a floating point number in python use <code class="docutils literal notranslate"><span class="pre">x.hex()</span></code> which returns a string representation of floats encoding.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_fp_hex</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">float</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v = </span><span class="si">{}</span><span class="s2"> ==&gt; v.hex() == &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">hex</span><span class="p">()))</span>
+    
+<span class="n">print_fp_hex</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">print_fp_hex</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">print_fp_hex</span><span class="p">(</span><span class="mf">16.0625</span><span class="p">)</span>
+<span class="n">print_fp_hex</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>v = 0.0 ==&gt; v.hex() == &#39;0x0.0p+0&#39;
+v = 1.0 ==&gt; v.hex() == &#39;0x1.0000000000000p+0&#39;
+v = 16.0625 ==&gt; v.hex() == &#39;0x1.0100000000000p+4&#39;
+v = -0.1 ==&gt; v.hex() == &#39;-0x1.999999999999ap-4&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="collections">
-<span id="id2"></span><h2>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="lists">
-<span id="id3"></span><h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>A list is similar to arrays in other languages. It is a sequence of values contained within square brackets and separated by a comma: <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">'a',</span> <span class="pre">...]</span></code></p></li>
 <li><p>The list data structure facilitates fast random access and appends, but slow arbitrary insertions and searches.</p></li>
@@ -612,7 +722,7 @@
 </div>
 </div>
 <div class="section" id="tuples">
-<span id="id4"></span><h3>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h3>
 <p>A <strong>Tuple</strong> is a read-only “immutable” fixed-length sequence of values</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -634,7 +744,7 @@ element at index i in tup is: None
 in order to “change” the object, you must create a new one incorporating the old one.</p>
 </div>
 <div class="section" id="dictionaries">
-<span id="id5"></span><h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
+<span id="id6"></span><h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
 <p>A dictionary is map of unique keys to values. Like set elements, keys must be unique.</p>
 <div class="section" id="default-dictionary-from-collections">
 <span id="default-dict"></span><h4>Default Dictionary from Collections<a class="headerlink" href="#default-dictionary-from-collections" title="Permalink to this headline">¶</a></h4>
@@ -647,9 +757,9 @@ in order to “change” the object, you must create a new one incorporating the
 </div>
 </div>
 <div class="section" id="control-flow">
-<span id="id6"></span><h2>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="assertions">
-<span id="id7"></span><h3>Assertions<a class="headerlink" href="#assertions" title="Permalink to this headline">¶</a></h3>
+<span id="id8"></span><h3>Assertions<a class="headerlink" href="#assertions" title="Permalink to this headline">¶</a></h3>
 <p>Assertions provide a way of checking if variables have certain values or objects meet certain conditions which
 minimizes the risk of an error in the code. General form:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="o">&lt;</span><span class="n">boolean</span> <span class="n">condition</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">error</span> <span class="n">string</span><span class="o">&gt;</span>
@@ -732,7 +842,7 @@ you to convert an iterator into an argument tuple</p>
 </div>
 </div>
 <div class="section" id="iterators">
-<span id="id8"></span><h3>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h3>
 <p>An iterator is a special type of object that produces a sequence of values. It is an object that contains a
 countable number of values which can be iterated upon (traversed through one by one). Technically, it is an
 object which implements an iterator protocol which consists of the methods <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> and <code class="docutils literal notranslate"><span class="pre">__next__()</span></code></p>
@@ -836,7 +946,7 @@ c
 </div>
 </div>
 <div class="section" id="itertools">
-<span id="id9"></span><h3>Itertools<a class="headerlink" href="#itertools" title="Permalink to this headline">¶</a></h3>
+<span id="id10"></span><h3>Itertools<a class="headerlink" href="#itertools" title="Permalink to this headline">¶</a></h3>
 <p>The <strong><code class="docutils literal notranslate"><span class="pre">Itertools</span></code></strong> module implements a number of iterator building blocks that standardize a core set of fast, memory-efficient tools
 that are useful by themselves, or in combination</p>
 <p><a class="reference external" href="https://docs.python.org/3/library/itertools.html">Link to <code class="docutils literal notranslate"><span class="pre">itertools</span></code> documentation</a></p>
@@ -852,10 +962,10 @@ that are useful by themselves, or in combination</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(&#39;zebra&#39;, &#39;emu&#39;, &#39;dog&#39;)
-(&#39;zebra&#39;, &#39;emu&#39;, &#39;cat&#39;)
-(&#39;zebra&#39;, &#39;dog&#39;, &#39;cat&#39;)
-(&#39;emu&#39;, &#39;dog&#39;, &#39;cat&#39;)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(&#39;cat&#39;, &#39;dog&#39;, &#39;emu&#39;)
+(&#39;cat&#39;, &#39;dog&#39;, &#39;zebra&#39;)
+(&#39;cat&#39;, &#39;emu&#39;, &#39;zebra&#39;)
+(&#39;dog&#39;, &#39;emu&#39;, &#39;zebra&#39;)
 </pre></div>
 </div>
 </div>
@@ -865,13 +975,15 @@ that are useful by themselves, or in combination</p>
 <div class="section" id="data-science-tools">
 <span id="data-sci"></span><h2>Data Science Tools<a class="headerlink" href="#data-science-tools" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="numpy">
-<span id="id10"></span><h3>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h3>
+<span id="id11"></span><h3>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="pandas">
-<span id="id11"></span><h3>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h3>
+<span id="id12"></span><h3>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="matplotlib">
-<span id="id12"></span><h4>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h4>
+<span id="id13"></span><h4>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h4>
+<p><strong>Useful Links</strong></p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://realpython.com/python-matplotlib-guide/#why-can-matplotlib-be-confusing">Why MatPlotLib can be Confusing</a></p></li>
 <li><p><a class="reference external" href="https://matplotlib.org/gallery.html">Matplotlib gallery</a></p></li>
 </ul>
 <div class="cell docutils container">
@@ -888,12 +1000,138 @@ that are useful by themselves, or in combination</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fc18ce17a60&gt;]
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f75f8fd8ac0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/python_23_1.png" src="../_images/python_23_1.png" />
+<img alt="../_images/python_27_1.png" src="../_images/python_27_1.png" />
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="working-with-math-in-python">
+<span id="mathstuff"></span><h2>Working with Math in Python<a class="headerlink" href="#working-with-math-in-python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pretty-printing-math-notation">
+<span id="ppmath"></span><h3>Pretty Printing Math Notation<a class="headerlink" href="#pretty-printing-math-notation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code for pretty-printing math notation</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span><span class="p">,</span> <span class="n">Latex</span><span class="p">,</span> <span class="n">Markdown</span>
+
+<span class="k">def</span> <span class="nf">display_math</span><span class="p">(</span><span class="n">str_latex</span><span class="p">):</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;$</span><span class="si">{}</span><span class="s1">$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">str_latex</span><span class="p">)))</span>
+    
+<span class="c1"># Demo:</span>
+<span class="n">display_math</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;x \in \mathcal</span><span class="si">{S}</span><span class="s1"> \implies y \in \mathcal</span><span class="si">{T}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-for-drawing-diagrams-with-vectors">
+<span id="drawdiagramswithvectors"></span><h3>Code for Drawing Diagrams with Vectors<a class="headerlink" href="#code-for-drawing-diagrams-with-vectors" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> 
+
+<span class="c1"># Code for drawing diagrams involving vectors</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="n">DEF_FIGLEN</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">DEF_FIGSIZE</span> <span class="o">=</span> <span class="p">(</span><span class="n">DEF_FIGLEN</span><span class="p">,</span> <span class="n">DEF_FIGLEN</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">DEF_FIGSIZE</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">multiplot_figsize</span><span class="p">(</span><span class="n">plot_dims</span><span class="p">,</span> <span class="n">base_figsize</span><span class="o">=</span><span class="n">DEF_FIGSIZE</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">p</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">plot_dims</span><span class="p">,</span> <span class="n">base_figsize</span><span class="p">)])</span>
+
+<span class="k">def</span> <span class="nf">subplots</span><span class="p">(</span><span class="n">plot_dims</span><span class="p">,</span> <span class="n">base_figsize</span><span class="o">=</span><span class="n">DEF_FIGSIZE</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="s1">&#39;col&#39;</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kw_args</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">plot_dims</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Must define a 2-D plot grid.&quot;</span>
+    <span class="n">multiplot_size</span> <span class="o">=</span> <span class="n">multiplot_figsize</span><span class="p">(</span><span class="n">plot_dims</span><span class="p">,</span> <span class="n">base_figsize</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">plot_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_dims</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                           <span class="n">figsize</span><span class="o">=</span><span class="n">multiplot_size</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                           <span class="n">sharex</span><span class="o">=</span><span class="n">sharex</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="n">sharey</span><span class="p">,</span>
+                           <span class="o">**</span><span class="n">kw_args</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">axes</span>
+
+<span class="k">def</span> <span class="nf">new_blank_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">axis_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">xlim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">ylim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">axis_color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">axis_color</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">axis_color</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ax</span>
+
+<span class="k">def</span> <span class="nf">draw_point2d</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="o">**</span><span class="n">kw_args</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Point must be 2-D.&quot;</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="n">marker</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="n">markersize</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kw_args</span><span class="p">);</span>
+
+<span class="k">def</span> <span class="nf">draw_label2d</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+                 <span class="n">dp</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kw_args</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Position must be 2-D.&quot;</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">coords</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="s1">&#39; = (</span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">text</span><span class="p">,</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">,</span>
+            <span class="n">horizontalalignment</span><span class="o">=</span><span class="n">horizontalalignment</span><span class="p">,</span>
+            <span class="n">verticalalignment</span><span class="o">=</span><span class="n">verticalalignment</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kw_args</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">draw_line2d</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kw_args</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;`start` must be a 2-D point.&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;`end` must be a 2-D point.&quot;</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">start</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">end</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="o">**</span><span class="n">kw_args</span><span class="p">);</span>
+
+<span class="k">def</span> <span class="nf">draw_vector2d</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                  <span class="o">**</span><span class="n">kw_args</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Input vector must be two-dimensional.&quot;</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">origin</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">origin</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+             <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+             <span class="n">facecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+             <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+             <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
+             <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+             <span class="o">**</span><span class="n">kw_args</span><span class="p">);</span>
+    
+<span class="k">def</span> <span class="nf">draw_vector2d_components</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">y_offset_sign</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vis_offset</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">comp_width</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">**</span><span class="n">kw_args</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Vector `v` must be 2-D.&quot;</span>
+    <span class="n">y_offset</span> <span class="o">=</span> <span class="n">y_offset_sign</span> <span class="o">*</span> <span class="n">vis_offset</span>
+    <span class="n">draw_line2d</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">y_offset</span><span class="p">),</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_offset</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="n">comp_width</span><span class="p">,</span> <span class="o">**</span><span class="n">kw_args</span><span class="p">)</span>
+    <span class="n">draw_line2d</span><span class="p">((</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_offset</span><span class="p">),</span> <span class="n">v</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">comp_width</span><span class="p">,</span> <span class="o">**</span><span class="n">kw_args</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">draw_angle</span><span class="p">(</span><span class="n">theta_start</span><span class="p">,</span> <span class="n">theta_end</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kw_args</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Arc</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">arc</span> <span class="o">=</span> <span class="n">Arc</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">radius</span><span class="p">,</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">radius</span><span class="p">,</span>
+              <span class="n">theta1</span><span class="o">=</span><span class="n">theta_start</span><span class="p">,</span> <span class="n">theta2</span><span class="o">=</span><span class="n">theta_end</span><span class="p">,</span>
+              <span class="o">**</span><span class="n">kw_args</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">arc</span><span class="p">)</span>
+            
+<span class="k">def</span> <span class="nf">draw_angle_label</span><span class="p">(</span><span class="n">theta_start</span><span class="p">,</span> <span class="n">theta_end</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kw_args</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">theta_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">theta_start</span> <span class="o">+</span> <span class="n">theta_end</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">360</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">pi</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">radius</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_label</span><span class="p">),</span>
+             <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">radius</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_label</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="p">,</span> <span class="o">**</span><span class="n">kw_args</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ready!&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>

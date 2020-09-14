@@ -1,27 +1,15 @@
 {
   "content/gluecode": {
-    "basic_sin": {
+    "t_insert": {
       "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "name": "basic_sin",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "[<matplotlib.lines.Line2D at 0x7fba3ae9b760>]"
-      }
-    },
-    "t_append": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "t_append",
+          "name": "t_insert",
           "mime_prefix": ""
         }
       },
       "data": {
-        "text/plain": "<TimeitResult : 42.7 ns \u00b1 13 ns per loop (mean \u00b1 std. dev. of 100 runs, 3000 loops each)>"
+        "text/plain": "<TimeitResult : 40.7 \u00b5s \u00b1 23.5 \u00b5s per loop (mean \u00b1 std. dev. of 100 runs, 3000 loops each)>"
       }
     },
     "t_ratio": {
@@ -33,19 +21,31 @@
         }
       },
       "data": {
-        "text/plain": "953.4164259679214"
+        "text/plain": "845.5917268885116"
       }
     },
-    "t_insert": {
+    "t_append": {
       "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "name": "t_insert",
+          "name": "t_append",
           "mime_prefix": ""
         }
       },
       "data": {
-        "text/plain": "<TimeitResult : 40.7 \u00b5s \u00b1 23.4 \u00b5s per loop (mean \u00b1 std. dev. of 100 runs, 3000 loops each)>"
+        "text/plain": "<TimeitResult : 48.2 ns \u00b1 23.2 ns per loop (mean \u00b1 std. dev. of 100 runs, 3000 loops each)>"
+      }
+    },
+    "basic_sin": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "basic_sin",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "[<matplotlib.lines.Line2D at 0x7ff189a21790>]"
       }
     }
   }
