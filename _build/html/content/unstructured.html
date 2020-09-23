@@ -1,0 +1,688 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Unstructured Text / Regular Expressions &#8212; Book of Code</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Floating Point Arithmetic" href="floatingpoint.html" />
+    <link rel="prev" title="Python Coding Snippets" href="pysnippets.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/default.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Book of Code</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search for Content" aria-label="Search for Content" autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Intro and Table of Contents
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="buildingbook.html">
+   Building A Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="myst.html">
+   MyST Markdown
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python.html">
+   Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="magic.html">
+   Magic Commands in Ipython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arcpy.html">
+   Arcpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pysnippets.html">
+   Python Coding Snippets
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Unstructured Text / Regular Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="floatingpoint.html">
+   Floating Point Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="languages.html">
+   Programming Languages at a High Level
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gluecode.html">
+   GlueCode
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/unstructured.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Amadreyfus/BookOfCode"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Amadreyfus/BookOfCode/master?urlpath=tree/content/unstructured.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-simple-string-processing-methods">
+   Some simple string processing methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#here-is-a-list-of-very-basic-ones">
+     Here is a list of very basic ones
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regular-expressions">
+   Regular Expressions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metacharacters">
+     Metacharacters
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#square-brackets">
+       Square Brackets
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         [
+        </span>
+        <span class="pre">
+         ]
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#backslash">
+       Backslash
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         \
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#repeating-chars">
+     Repeating Chars (*) , (+) , (?)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#or-more-times-repetition">
+       *  , 0 or more times repetition
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plus">
+       +  , 1 or more times repetition
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#must-match-either-0-or-1-time">
+       ?   , must match either 0 or 1 time.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#m-n-m-n-in-mathcal-z-lower-and-upper-bound-on-matching">
+       {m,n}  ,
+       <span class="math notranslate nohighlight">
+        \(m, n \in \mathcal{Z}\)
+       </span>
+       lower and upper bound on matching
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-regular-expressions">
+     Using Regular Expressions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pattern-objects-and-matching-operations">
+     Pattern Objects and Matching Operations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compilation-flags-re">
+     Compilation Flags (re.&lt;&gt;)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="unstructured-text-regular-expressions">
+<span id="unstructured"></span><h1>Unstructured Text / Regular Expressions<a class="headerlink" href="#unstructured-text-regular-expressions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="some-simple-string-processing-methods">
+<span id="simple"></span><h2>Some simple string processing methods<a class="headerlink" href="#some-simple-string-processing-methods" title="Permalink to this headline">¶</a></h2>
+<p>These can be applied globally (returning one bool value for whole string) or on each individual character
+in the string (using iteration).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;sgtEEEr2020.0&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Strings have methods for checking &quot;global&quot; string properties</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1.&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>
+
+<span class="c1"># These can also be applied per character</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2.&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">text</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1. False
+2. [True, True, True, True, True, True, True, False, False, False, False, False, False]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="here-is-a-list-of-very-basic-ones">
+<h3>Here is a list of very basic ones<a class="headerlink" href="#here-is-a-list-of-very-basic-ones" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span>
+<span class="n">text</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span>
+<span class="n">text</span><span class="o">.</span><span class="n">isspace</span><span class="p">()</span>
+<span class="n">text</span><span class="o">.</span><span class="n">islower</span><span class="p">()</span>
+<span class="n">text</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
+<span class="n">text</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="regular-expressions">
+<span id="regularexpressions"></span><h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h2>
+<p>Regular Expresssions are made available in python through the <code class="docutils literal notranslate"><span class="pre">re</span></code> module. Here are some useful links:</p>
+<p><a class="reference external" href="https://docs.python.org/3/howto/regex.html0">Regular Expression HowTo</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/re.html#module-re">Regular Expression Documentation</a></p>
+<div class="section" id="metacharacters">
+<span id="id1"></span><h3>Metacharacters<a class="headerlink" href="#metacharacters" title="Permalink to this headline">¶</a></h3>
+<p>Metacharacters in Regexes specificy some unique behavior and allow for more complex pattern matching. They have a sytnactic value separate from their
+literal value, unless part of a class that specifies otherwise.</p>
+<p>They include: <code class="docutils literal notranslate"> <span class="pre">.</span> <span class="pre">^</span> <span class="pre">$</span> <span class="pre">*</span> <span class="pre">+</span> <span class="pre">?</span> <span class="pre">{</span> <span class="pre">}</span> <span class="pre">[</span> <span class="pre">]</span> <span class="pre">\</span> <span class="pre">|</span> <span class="pre">(</span> <span class="pre">)</span></code></p>
+<div class="section" id="square-brackets">
+<span id="squarebrackets"></span><h4>Square Brackets <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code><a class="headerlink" href="#square-brackets" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> are used for specifying a character class: a set of characters you wish to mathch.</p>
+<ul class="simple">
+<li><p>Can be listed individually: <code class="docutils literal notranslate"><span class="pre">[abcd]</span> </code> or using a hyphen for a range <code class="docutils literal notranslate"><span class="pre">[a-d]</span></code></p></li>
+<li><p>Metacharacters lose their special significance inside <code class="docutils literal notranslate"><span class="pre">[]</span></code> so <code class="docutils literal notranslate"><span class="pre">[a[bc]]</span></code> will look to match all 5 characters including brackets.</p></li>
+<li><p><strong>Complements:</strong> <code class="docutils literal notranslate"><span class="pre">[^a]</span> </code> A carrot at the start will indicate to search for every character except those within <code class="docutils literal notranslate"><span class="pre">[]</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="backslash">
+<span id="id2"></span><h4>Backslash <code class="docutils literal notranslate"><span class="pre">\</span></code><a class="headerlink" href="#backslash" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Arguably most important metacharacter. Can be used as an escape sequence <code class="docutils literal notranslate"><span class="pre">\\</span></code> == <code class="docutils literal notranslate"><span class="pre">`\`</span></code></p></li>
+<li><p>More importantly, \ can be used to specify certain predefined sequences.</p></li>
+</ul>
+<p>Here are some of the most common</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Sequence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\d</span></code></p></td>
+<td><p>Matches any decimal digit, [0-9]</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\D</span></code></p></td>
+<td><p>Complement of <code class="docutils literal notranslate"><span class="pre">\d</span></code>. Matches any non-digit character. [^0-9]</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\s</span></code></p></td>
+<td><p>Matches any whitespace character, [ \t\n\r\f\v]</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\S</span></code></p></td>
+<td><p>complement of <code class="docutils literal notranslate"><span class="pre">\s</span></code>. Matches any non-whitespace character [^ \t\n\r\f\v]</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\w</span></code></p></td>
+<td><p>Matches any alphanumeric character. [a-zA-Z0-9_]</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\W</span></code></p></td>
+<td><p>Complement of <code class="docutils literal notranslate"><span class="pre">\w</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\A</span></code></p></td>
+<td><p>Matches only at the start of a string</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\Z</span></code></p></td>
+<td><p>Matches only at the end of a string`</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\b</span></code></p></td>
+<td><p>Word boundary. Zero-width assertion that matches only at the beginning or end of a word.
+A <strong>word</strong> is any sequence of alphanumeric characters. Whitespace or punctuation are delimiters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\B</span></code></p></td>
+<td><p>Only matches when not at word boundary</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td><p>Matches at the beginning of string, unless re.M specified, then at beginning of each new line</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">$</span></code></p></td>
+<td><p>Matches at end of string, unless re.M specified, then right before newlines.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="repeating-chars">
+<span id="repeating"></span><h3>Repeating Chars (*) , (+) , (?)<a class="headerlink" href="#repeating-chars" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#asterisk"><span class="std std-ref"> *</span></a></p></li>
+<li><p><a class="reference internal" href="#plus"><span class="std std-ref"> +</span></a></p></li>
+<li><p><a class="reference internal" href="#question"><span class="std std-ref"> ?</span></a></p></li>
+<li><p><a class="reference internal" href="#bounds"><span class="std std-ref"> {m,n}</span></a></p></li>
+</ul>
+<div class="section" id="or-more-times-repetition">
+<span id="asterisk"></span><h4>*  , 0 or more times repetition<a class="headerlink" href="#or-more-times-repetition" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">*</span></code> character specifies that that character or character block the precedes it can be matched <strong>0 or more times</strong>.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">ca*t</span></code>  will match <code class="docutils literal notranslate"><span class="pre">ct</span></code>, <code class="docutils literal notranslate"><span class="pre">cat</span></code>, and <code class="docutils literal notranslate"><span class="pre">ca...at</span></code></p>
+<p>It can also be used on character class blocks: <code class="docutils literal notranslate"><span class="pre">a[bcd]*d</span></code></p>
+<p>It is greedy and will search for as many repetitions as possible before scaling back to 0.</p>
+</div>
+<div class="section" id="plus">
+<span id="id3"></span><h4>+  , 1 or more times repetition<a class="headerlink" href="#plus" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">+</span></code> character is the same as <code class="docutils literal notranslate"><span class="pre">*</span></code> except it must match <strong>1 or more times</strong></p>
+</div>
+<div class="section" id="must-match-either-0-or-1-time">
+<span id="question"></span><h4>?   , must match either 0 or 1 time.<a class="headerlink" href="#must-match-either-0-or-1-time" title="Permalink to this headline">¶</a></h4>
+<p>Can think of it as designating something as optional. For example,</p>
+<p><code class="docutils literal notranslate"><span class="pre">home-?brew</span> </code> will match either <code class="docutils literal notranslate"><span class="pre">home-brew</span></code> or <code class="docutils literal notranslate"> <span class="pre">homebrew</span></code></p>
+</div>
+<div class="section" id="m-n-m-n-in-mathcal-z-lower-and-upper-bound-on-matching">
+<span id="bounds"></span><h4>{m,n}  , <span class="math notranslate nohighlight">\(m, n \in \mathcal{Z}\)</span> lower and upper bound on matching<a class="headerlink" href="#m-n-m-n-in-mathcal-z-lower-and-upper-bound-on-matching" title="Permalink to this headline">¶</a></h4>
+<p>Necessitates that a char or char block matches at least m times but not more than n times: <span class="math notranslate nohighlight">\(m\leq \text(matches) \leq n\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">a\{1,3}b</span> </code> matches <code class="docutils literal notranslate"><span class="pre">a\b</span></code>, <code class="docutils literal notranslate"><span class="pre">a\\b</span></code>, and <code class="docutils literal notranslate"> <span class="pre">a\\\b</span></code></p>
+</div>
+</div>
+<div class="section" id="using-regular-expressions">
+<span id="using"></span><h3>Using Regular Expressions<a class="headerlink" href="#using-regular-expressions" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">re</span></code> module provides an interface to the regular expresssion engine that allows us to compile RE’s into objects and then perform
+matching operations on them</p>
+<p>The basic idea is something like this:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using the python raw string formatting keeps the text as clean as possible</p>
+</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;ab*&#39;</span><span class="p">)</span>
+
+<span class="c1"># or, to ignore case</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;ab*&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pattern-objects-and-matching-operations">
+<span id="patterns"></span><h3>Pattern Objects and Matching Operations<a class="headerlink" href="#pattern-objects-and-matching-operations" title="Permalink to this headline">¶</a></h3>
+<p>Regular expressions are compiled into pattern objects which then allows us to perform matching operations upon them.</p>
+<p>Here are some of the most common methods that take the form <code class="docutils literal notranslate"><span class="pre">p.method()</span></code></p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">match()</span></code></p></td>
+<td><p>Determines if the RE matches at the beginning of a string</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">search()</span></code></p></td>
+<td><p>Scans through a string looking for any location where RE matches</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">findall()</span></code></p></td>
+<td><p>Finds all substrings where RE matches and returns it as a list</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">findter()</span></code></p></td>
+<td><p>Finds all substrings where RE matches and returns it as an iterable</p></td>
+</tr>
+</tbody>
+</table>
+<p>So running something such as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;regex&#39;</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>will create a match object that is <code class="docutils literal notranslate"><span class="pre">None</span></code> type if no match is found.</p>
+<p>Here are some useful <code class="docutils literal notranslate"><span class="pre">match()</span></code> attributes/methods:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">group()</span></code></p></td>
+<td><p>Returns the string matched by RE</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">start()</span></code></p></td>
+<td><p>Returns the starting index position of first letter in match</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stop()</span></code></p></td>
+<td><p>Returns the (ending position index + 1) of match</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">span()</span></code></p></td>
+<td><p>returns a tuple containing start(), stop() values</p></td>
+</tr>
+</tbody>
+</table>
+<p>Here is the general structure of a match program:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span> <span class="o">...</span> <span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span> <span class="s1">&#39;string goes here&#39;</span> <span class="p">)</span>
+<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Match found: &#39;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No match&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compilation-flags-re">
+<span id="flags"></span><h3>Compilation Flags (re.&lt;&gt;)<a class="headerlink" href="#compilation-flags-re" title="Permalink to this headline">¶</a></h3>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>He is the format for these flags, bitwise OR <code class="docutils literal notranslate"><span class="pre">|</span></code>
+can be used to chain multiple flags</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">complile</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">A</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span> <span class="n">I</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="table" id="id4">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Table of Available Flags</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ASCII,</span> <span class="pre">A</span></code></p></td>
+<td><p>Makes several escapes like \w, \b, \s, \d match only on ASCII characters with the correspnding
+properties</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DOTALL,</span> <span class="pre">S</span></code></p></td>
+<td><p>Makes <code class="docutils literal notranslate"><span class="pre">.</span></code> match any character, <strong>including newlines</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IGNORECASE,</span> <span class="pre">I</span></code></p></td>
+<td><p>Runs case-insensitive matches</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">LOCALE,</span> <span class="pre">L</span></code></p></td>
+<td><p>Do a locale-aware match. Helps with writing programs that account for language-alphabetic symbolic diff.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MULTILINE,</span> <span class="pre">M</span></code></p></td>
+<td><p>breaks up a string with newlines <code class="docutils literal notranslate"><span class="pre">\n</span></code> into multiple strings affecting the <code class="docutils literal notranslate"><span class="pre">^</span></code> and <code class="docutils literal notranslate"><span class="pre">$</span></code> metacharacters</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">VERBOSE,</span> <span class="pre">X</span></code></p></td>
+<td><p>This flag allows you to write regular expressions that are more readable by granting you more
+flexibility in how you can format them</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="pysnippets.html" title="previous page">Python Coding Snippets</a>
+    <a class='right-next' id="next-link" href="floatingpoint.html" title="next page">Floating Point Arithmetic</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Sean Cahill<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

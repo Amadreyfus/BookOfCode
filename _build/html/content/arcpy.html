@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Intro and Table of Contents &#8212; Book of Code</title>
+    <title>Arcpy &#8212; Book of Code</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,7 +40,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Building A Jupyter Book" href="buildingbook.html" />
+    <link rel="next" title="Python Coding Snippets" href="pysnippets.html" />
+    <link rel="prev" title="Magic Commands in Ipython" href="magic.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -75,12 +76,12 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="#">
+  <a class="reference internal" href="intro.html">
    Intro and Table of Contents
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="buildingbook.html">
    Building A Jupyter Book
@@ -106,8 +107,8 @@
    Magic Commands in Ipython
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="arcpy.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Arcpy
   </a>
  </li>
@@ -176,9 +177,12 @@
     
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="../_sources/content/arcpy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/content/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/content/arcpy.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -210,6 +214,23 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Amadreyfus/BookOfCode/master?urlpath=tree/content/arcpy.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -218,14 +239,7 @@
             <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#acknowledgements">
-   Acknowledgements
-  </a>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -234,41 +248,8 @@
         
               <div>
                 
-  <div class="section" id="intro-and-table-of-contents">
-<h1>Intro and Table of Contents<a class="headerlink" href="#intro-and-table-of-contents" title="Permalink to this headline">¶</a></h1>
-<br />
-<br />
-<p>This book is primarily meant as a reference for myself in order to collect and
-organize the useful coding syntax I am constantly forgetting across all
-of the different languages I encounter.</p>
-<p>Essentially, it is a collection of cheat sheets that takes advantage of the
-functionality of Jupyter Book in order to create a comprehensive
-and easy to manage repository of commands and syntax with explanations.</p>
-<p>This will be a work in progress as I continuously add to this project
-and reorganize as my understanding of jupyter-book grows.</p>
-<p>It is also an inherently selfish document in that I will only consider my frame
-of reference in populating and organizing it. As a result, it will be idiosyncratic
-in terms of its content and layout, although, hopefully, not egregiously so.</p>
-<p>For anyone else interested in creating their own jupter-book,
-instructions can be found at <a class="reference external" href="https://beta.jupyterbook.org/intro.html">https://beta.jupyterbook.org/intro.html</a>.</p>
-<br />
-<p><strong>Quick references to various sections.</strong></p>
-<ul class="simple">
-<li><p><a class="reference internal" href="buildingbook.html#building-book"><span class="std std-ref"> Building a Jupyter Book</span></a></p></li>
-<li><p><a class="reference internal" href="myst.html#myst"><span class="std std-ref"> Myst Markdown</span></a></p></li>
-<li><p><a class="reference internal" href="git.html#git"><span class="std std-ref"> Git Commands</span></a></p></li>
-<li><p><a class="reference internal" href="python.html#python"><span class="std std-ref"> Python 3</span></a></p></li>
-<li><p><a class="reference internal" href="magic.html#magic"><span class="std std-ref"> Magic Commands in IPython</span></a></p></li>
-<li><p><a class="reference internal" href="pysnippets.html#snippets"><span class="std std-ref"> Python Coding Snippets</span></a></p></li>
-<li><p><a class="reference internal" href="floatingpoint.html#floatingpoint"><span class="std std-ref">Floating Point Arithmetic</span></a></p></li>
-<li><p><a class="reference internal" href="languages.html#languages"><span class="std std-ref"> Programming Languages at a High Level</span></a></p></li>
-</ul>
-<div class="section" id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
-<p>A big thank you to the <a class="reference external" href="https://executablebooks.org/en/latest/">Executable Book Project</a></p>
-<div class="toctree-wrapper compound">
-</div>
-</div>
+  <div class="section" id="arcpy">
+<span id="id1"></span><h1>Arcpy<a class="headerlink" href="#arcpy" title="Permalink to this headline">¶</a></h1>
 </div>
 
     <script type="text/x-thebe-config">
@@ -299,7 +280,8 @@ instructions can be found at <a class="reference external" href="https://beta.ju
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="buildingbook.html" title="next page">Building A Jupyter Book</a>
+    <a class='left-prev' id="prev-link" href="magic.html" title="previous page">Magic Commands in Ipython</a>
+    <a class='right-next' id="next-link" href="pysnippets.html" title="next page">Python Coding Snippets</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

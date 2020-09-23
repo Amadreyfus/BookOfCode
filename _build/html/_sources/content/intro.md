@@ -33,6 +33,7 @@ instructions can be found at [https://beta.jupyterbook.org/intro.html][jb].
 - {ref}` Python 3 <python>`
 - {ref}` Magic Commands in IPython <magic>`
 - {ref}` Python Coding Snippets <snippets>`
+- {ref}`floatingpoint`
 - {ref}` Programming Languages at a High Level <languages>`
 
 

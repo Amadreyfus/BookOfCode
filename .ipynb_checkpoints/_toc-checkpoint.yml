@@ -4,7 +4,10 @@
 - file: content/git
 - file: content/python
 - file: content/magic
+- file: content/arcpy
 - file: content/pysnippets
+- file: content/unstructured
+- file: content/floatingpoint
 - file: content/languages
 - file: content/gluecode
 
