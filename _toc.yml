@@ -5,6 +5,7 @@
 - file: content/python
 - file: content/magic
 - file: content/arcpy
+- file: content/pandasprob
 - file: content/pysnippets
 - file: content/unstructured
 - file: content/floatingpoint

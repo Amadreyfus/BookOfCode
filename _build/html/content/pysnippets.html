@@ -41,7 +41,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Unstructured Text / Regular Expressions" href="unstructured.html" />
-    <link rel="prev" title="Arcpy" href="arcpy.html" />
+    <link rel="prev" title="A Catalogue of Problems and Workarounds for Pandas" href="pandasprob.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -110,6 +110,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="arcpy.html">
    Arcpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandasprob.html">
+   A Catalogue of Problems and Workarounds for Pandas
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -409,7 +414,7 @@ is of a comparable runtime.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The slowest run took 139.75 times longer than the fastest. This could mean that an intermediate result is being cached.
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The slowest run took 137.90 times longer than the fastest. This could mean that an intermediate result is being cached.
 13.6 µs ± 7.81 µs per loop (mean ± std. dev. of 100 runs, 1000 loops each)
 </pre></div>
 </div>
@@ -423,7 +428,7 @@ is of a comparable runtime.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>43.1 ns ± 17.2 ns per loop (mean ± std. dev. of 100 runs, 1000 loops each)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>45.4 ns ± 18.2 ns per loop (mean ± std. dev. of 100 runs, 1000 loops each)
 </pre></div>
 </div>
 </div>
@@ -440,7 +445,7 @@ Let us see the the ratio of execution times for these two cell blocks:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>==&gt; (insert time)/(append time) for 1000 operations: ~315.7967230591007x
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>==&gt; (insert time)/(append time) for 1000 operations: ~299.27262521166193x
 </pre></div>
 </div>
 </div>
@@ -455,7 +460,7 @@ as the number of ops grows, so will execution time.
 </pre></div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 40.7 µs ± 23.4 µs per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 40.8 µs ± 23.5 µs per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
 </pre></div>
 </div>
 </div>
@@ -465,7 +470,7 @@ as the number of ops grows, so will execution time.
 </pre></div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 44.4 ns ± 13.4 ns per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 48.2 ns ± 10.1 ns per loop (mean ± std. dev. of 100 runs, 3000 loops each)&gt;
 </pre></div>
 </div>
 </div>
@@ -476,7 +481,7 @@ as the number of ops grows, so will execution time.
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">==&gt; (insert time) / (append time) for 3,000 ops: ~ </span><span class="si">{</span><span class="n">t_insert</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">t_append</span><span class="o">.</span><span class="n">average</span><span class="si">}</span><span class="s2">x&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(insert time) / (append time) for 3,000 ops: ~ <span class="pasted-text">916.5227678625855</span>x</p>
+<p>(insert time) / (append time) for 3,000 ops: ~ <span class="pasted-text">846.6419315507321</span>x</p>
 </div>
 </div>
 <div class="section" id="dictionary-operations">
@@ -512,7 +517,7 @@ as the number of ops grows, so will execution time.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[0, 3, 1, 7, 5, 2, 4, 8, 6, 9]
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[3, 2, 7, 9, 4, 1, 5, 0, 8, 6]
 </pre></div>
 </div>
 </div>
@@ -599,7 +604,7 @@ as the number of ops grows, so will execution time.
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="arcpy.html" title="previous page">Arcpy</a>
+    <a class='left-prev' id="prev-link" href="pandasprob.html" title="previous page">A Catalogue of Problems and Workarounds for Pandas</a>
     <a class='right-next' id="next-link" href="unstructured.html" title="next page">Unstructured Text / Regular Expressions</a>
 
     </div>

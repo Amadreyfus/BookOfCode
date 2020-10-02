@@ -40,7 +40,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python Coding Snippets" href="pysnippets.html" />
+    <link rel="next" title="A Catalogue of Problems and Workarounds for Pandas" href="pandasprob.html" />
     <link rel="prev" title="Magic Commands in Ipython" href="magic.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -110,6 +110,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Arcpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandasprob.html">
+   A Catalogue of Problems and Workarounds for Pandas
   </a>
  </li>
  <li class="toctree-l1">
@@ -239,7 +244,41 @@
             <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-steps-to-arcpy-scripting">
+   Basic Steps to Arcpy Scripting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-1-set-up-your-arcpy-workspace-and-allow-for-overwriting">
+     Step 1: Set up your arcpy workspace and allow for overwriting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step2-establishes-path-to-the-arcgis-project-i-want-to-interact-with">
+     Step2: Establishes path to the ArcGIS project I want to interact with
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step3-dealing-with-maps-in-the-project">
+     Step3: Dealing with Maps in the Project
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step4-adding-data-to-map-as-a-feature">
+     Step4: Adding Data to Map as a Feature
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spatial-joins">
+   Spatial Joins
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -250,6 +289,113 @@
                 
   <div class="section" id="arcpy">
 <span id="id1"></span><h1>Arcpy<a class="headerlink" href="#arcpy" title="Permalink to this headline">¶</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Folder Setup
+It is important for a blank project to be setup in ArcGIS Pro before using arcpy as it creates the necessary project folders and objects
+to successfully use the package. Furthermore, it is a good idea to setup an “intermediate data” subfolder in your main folder to handle
+all outputs from arcpy and python as they can get quite messy.</p>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here is an example of an intermediate folder address within the main folder `Connecticut`</span>
+
+<span class="sa">r</span><span class="s1">&#39;C:\Users\SeanJ\JupyterFolder\CrashometryV2Data\Connecticut\IntermediateData&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="basic-steps-to-arcpy-scripting">
+<span id="arcpybasics"></span><h2>Basic Steps to Arcpy Scripting<a class="headerlink" href="#basic-steps-to-arcpy-scripting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-1-set-up-your-arcpy-workspace-and-allow-for-overwriting">
+<h3>Step 1: Set up your arcpy workspace and allow for overwriting<a class="headerlink" href="#step-1-set-up-your-arcpy-workspace-and-allow-for-overwriting" title="Permalink to this headline">¶</a></h3>
+<p>Doing this grants the neccessary functionality to any files/interactions between arcpy and this folder.</p>
+<p>It essentially establishes your working directory for any arcpy calls.</p>
+<p>Overwriting allows you to overwrite previous files so you never have problems reexecuting commands.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#Setting up my arcpy workspace, basically my working directory for basic arcpy functions</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">workspace</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\SeanJ\JupyterFolder\CrashometryV2Data\Connecticut\IntermediateData&#39;</span>
+
+<span class="c1">#Making sure that I can overwrite previous files if I need to.</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">overwriteOutput</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step2-establishes-path-to-the-arcgis-project-i-want-to-interact-with">
+<h3>Step2: Establishes path to the ArcGIS project I want to interact with<a class="headerlink" href="#step2-establishes-path-to-the-arcgis-project-i-want-to-interact-with" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#Establishes the path to the arcGIS project I want, which will contain my layers, features, tables, maps..</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">arcpy</span><span class="o">.</span><span class="n">mp</span><span class="o">.</span><span class="n">ArcGISProject</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\SeanJ\JupyterFolder\CrashometryV2Data\Connecticut\ArcGISProject\ArcGISProject.aprx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step3-dealing-with-maps-in-the-project">
+<h3>Step3: Dealing with Maps in the Project<a class="headerlink" href="#step3-dealing-with-maps-in-the-project" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create a results object that is a list of maps</span>
+<span class="n">result_maps</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">listMaps</span><span class="p">()</span>
+
+<span class="c1">#Simple loop to create a list with names of map objects in current project.</span>
+<span class="n">list_maps</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">result_maps</span><span class="p">:</span>
+    <span class="n">list_maps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    
+<span class="c1">#Check the result of this list population, should be 1 map by default</span>
+<span class="n">list_maps</span>  
+
+<span class="c1">#Assigning a reference to the first (and only in this case) map in my list which will point to the map object</span>
+<span class="n">my_map</span> <span class="o">=</span> <span class="n">result_maps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1">#Check the name of map, using `.name` attribute, is &quot;Map&quot; by default </span>
+<span class="n">my_map</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step4-adding-data-to-map-as-a-feature">
+<h3>Step4: Adding Data to Map as a Feature<a class="headerlink" href="#step4-adding-data-to-map-as-a-feature" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#Adding a standalone table (as a feauture) to my project that contains stripped down crash data for CT for 2019-May2020</span>
+<span class="n">my_map</span><span class="o">.</span><span class="n">addDataFromPath</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\SeanJ\JupyterFolder\CrashometryV2Data\Connecticut\CT_Jan_2019_May_2020_Sparse.csv&#39;</span><span class="p">)</span>
+
+
+<span class="c1">#Checking to make sure that my table has be uploaded</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_map</span><span class="o">.</span><span class="n">listTables</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    
+<span class="c1">#Assigning a reference variable to my table result object</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">my_map</span><span class="o">.</span><span class="n">listTables</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1">#Converting my table into a format that will allow it to integrate as a geospatial map layer, simple point shape file. This</span>
+<span class="c1">#is an intermediate step and the result must be uploaded to the map explicitly.</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">management</span><span class="o">.</span><span class="n">XYTableToPoint</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="s1">&#39;CT_TableToPoint&#39;</span><span class="p">,</span> <span class="s2">&quot;Longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;Latitude&quot;</span><span class="p">)</span>
+
+<span class="c1">#Adding the shapefile we just output to map as a layer</span>
+<span class="n">my_map</span><span class="o">.</span><span class="n">addDataFromPath</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\SeanJ\JupyterFolder\CrashometryV2Data\Connecticut\IntermediateData\CT_TableToPoint.shp&#39;</span><span class="p">)</span>
+
+<span class="c1">#This is a shapefile that contains polygons of all counties in the United States</span>
+<span class="n">my_map</span><span class="o">.</span><span class="n">addDataFromPath</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\SeanJ\JupyterFolder\CrashometryV2Data\CountyShapeFile\tl_2017_us_county.shp&#39;</span><span class="p">)</span>
+
+<span class="c1">#Quick Check to make sure we have our necessary layers and see where they are indexed.</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">member</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">my_map</span><span class="o">.</span><span class="n">listLayers</span><span class="p">()):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>&lt;br &gt;</p>
+<p>So, now we have a map with a bunch of feature layers inside of our project. Opening up ArcGIS desktop will display all this data for us
+visually.</p>
+<br />
+</div>
+</div>
+<div class="section" id="spatial-joins">
+<span id="spatial"></span><h2>Spatial Joins<a class="headerlink" href="#spatial-joins" title="Permalink to this headline">¶</a></h2>
+<p>We now have some distinct layers and can do a spatial join on them combining them into a single dataset based off some geospatial attribute</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#Assigning references in order to pass them as arguments to future function</span>
+<span class="n">target_feature</span> <span class="o">=</span> <span class="n">my_map</span><span class="o">.</span><span class="n">listLayers</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">join_feature</span> <span class="o">=</span> <span class="n">my_map</span><span class="o">.</span><span class="n">listLayers</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1">#Performing the Spatial join, &quot;CT_County_Spatial&quot; is our desired filename.</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">SpatialJoin</span><span class="p">(</span><span class="n">target_feature</span><span class="p">,</span> <span class="n">join_feature</span><span class="p">,</span> <span class="s2">&quot;CT_County_Spatial&quot;</span><span class="p">,</span> <span class="n">join_operation</span><span class="o">=</span><span class="s1">&#39;JOIN_ONE_TO_ONE&#39;</span><span class="p">,</span>
+                           <span class="n">join_type</span><span class="o">=</span><span class="s1">&#39;KEEP_ALL&#39;</span><span class="p">,</span> <span class="n">match_option</span><span class="o">=</span><span class="s1">&#39;INTERSECT&#39;</span><span class="p">)</span>
+
+
+<span class="c1">#Converting the spatially joined shapefile into a csv so we can upload it as a DataFrame</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">TableToTable_conversion</span><span class="p">(</span><span class="s2">&quot;CT_County_Spatial.shp&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\SeanJ\JupyterFolder\CrashometryV2Data\Connecticut\IntermediateData&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;CT_County_SpatialJoin.csv&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -281,7 +427,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="magic.html" title="previous page">Magic Commands in Ipython</a>
-    <a class='right-next' id="next-link" href="pysnippets.html" title="next page">Python Coding Snippets</a>
+    <a class='right-next' id="next-link" href="pandasprob.html" title="next page">A Catalogue of Problems and Workarounds for Pandas</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
