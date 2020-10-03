@@ -32,6 +32,7 @@ instructions can be found at [https://beta.jupyterbook.org/intro.html][jb].
 - {ref}` Git Commands <git>`
 - {ref}` Python 3 <python>`
 - {ref}` Magic Commands in IPython <magic>`
+- {ref}`time`
 - {ref}`arcpy`
 - {ref}`pandasprob`
 - {ref}` Python Coding Snippets <snippets>`

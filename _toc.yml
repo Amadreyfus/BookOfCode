@@ -4,6 +4,7 @@
 - file: content/git
 - file: content/python
 - file: content/magic
+- file: content/timeseries
 - file: content/arcpy
 - file: content/pandasprob
 - file: content/pysnippets
