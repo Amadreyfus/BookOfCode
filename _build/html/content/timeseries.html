@@ -251,6 +251,23 @@
   <a class="reference internal nav-link" href="#strings-and-strftime">
    Strings and strftime
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strftime">
+     Strftime
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy-datetime64">
+   Numpy datetime64
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dates-and-times-in-pandas">
+   Dates and Times in Pandas
+  </a>
  </li>
 </ul>
 
@@ -285,7 +302,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>datetime.now() : 2020-10-03 17:10:44.087551
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>datetime.now() : 2020-10-05 09:53:22.779887
 datetime.now().year : 2020
 </pre></div>
 </div>
@@ -324,7 +341,7 @@ datetime.now().year : 2020
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2020-10-03 17:10:44.105658
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2020-10-05 09:53:22.795268
 </pre></div>
 </div>
 </div>
@@ -341,7 +358,9 @@ datetime.now().year : 2020
 </div>
 </div>
 </div>
-<p>strftime allows you to select certain parts of the datetime object with using the special formatting codes. Here is a list of common ones:</p>
+<div class="section" id="strftime">
+<span id="strf"></span><h3>Strftime<a class="headerlink" href="#strftime" title="Permalink to this headline">¶</a></h3>
+<p><strong>strftime</strong> allows you to select certain parts of the datetime object with using the special formatting codes. Here is a list of common ones: (ISO C89 compatible)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">%Y</span></code> : 4 digit year</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">%y</span></code> : 2 digit year</p></li>
@@ -355,6 +374,124 @@ datetime.now().year : 2020
 <li><p><code class="docutils literal notranslate"><span class="pre">%F</span></code> : shortcut for <code class="docutils literal notranslate"><span class="pre">%Y-%m-%d</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">%D</span></code> : shortcut for <code class="docutils literal notranslate"><span class="pre">%d/%m/%y</span></code></p></li>
 </ul>
+<p>Here is a list of useful locale-specific <strong>strftime</strong> codes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">%a</span></code> : abbreviated day name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%A</span></code> : Full-length day name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%b</span></code> : abbreviated month name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%B</span></code> : Full month name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%c</span></code> : full date-time (Tue 01 May 2012 04:20:57 PM’)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%p</span></code> : locale equivalent of a.m./p.m.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%x</span></code> : locale-appropriate formatted date (%c)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%X</span></code> : locale-appropriate time</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="numpy-datetime64">
+<span id="datetime64"></span><h2>Numpy <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.datetime.html">datetime64</a><a class="headerlink" href="#numpy-datetime64" title="Permalink to this headline">¶</a></h2>
+<p>Like most native python objects and and processes - problems with efficiency and speed arise when dealing with large quantities and loops.</p>
+<p>The dypte <strong>datetime64</strong> was developed in order to address these problems.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> datatype encodes dates as 64 bit integers (which allows dates to be represented compactly)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;2020-07-04&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;datetime64[D]&#39;</span><span class="p">)</span>
+<span class="n">date</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array(&#39;2020-07-04&#39;, dtype=&#39;datetime64[D]&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dates in this format allow for vectorized operations.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recall that alot of the speed attainable in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> is due to the uniformity
+of dtype in numpy arrays</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;2020-07-04&#39;, &#39;2020-07-05&#39;, &#39;2020-07-06&#39;, &#39;2020-07-07&#39;,
+       &#39;2020-07-08&#39;, &#39;2020-07-09&#39;], dtype=&#39;datetime64[D]&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">datetime64</span></code> and <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> are both built upon a <strong>fundamental time unit</strong> and so the range of encodable dates =</p>
+<div class="math notranslate nohighlight">
+\[ 2^{64} \cdot (t_{u}) \]</div>
+<p>where <span class="math notranslate nohighlight">\(t_{u}\)</span> is the smallest unit of time measured <strong>(time resolution)</strong> and the product above is the <strong>max time span</strong></p>
+<p><span class="math notranslate nohighlight">\(ns = 10^{-9}\)</span> (nanoseconds) are the default ftu. but there are quite a few codes that can be used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2020-08-11&#39;</span><span class="p">,</span> <span class="s1">&#39;ns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>numpy.datetime64(&#39;2020-08-11T00:00:00.000000000&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are the various codes for <code class="docutils literal notranslate"><span class="pre">datetime64</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code> : year</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">M</span></code> : month</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">W</span></code> : …</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">D</span></code> :</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">h</span></code> :</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">m</span></code> :</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code> :</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ms</span></code> : millisecond</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">us</span></code> : microsecond <span class="math notranslate nohighlight">\(10^{-6}\)</span> one millionth of a second</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ns</span></code> : nanosecond</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ps</span></code> : picosecond <span class="math notranslate nohighlight">\(10^{-12}\)</span> one trillionth of a second</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fs</span></code> : femtosecond</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as</span></code> : attosecond <span class="math notranslate nohighlight">\(10^{-18}\)</span> one quintillionth of a second</p></li>
+</ul>
+</div>
+<div class="section" id="dates-and-times-in-pandas">
+<span id="pandasdate"></span><h2>Dates and Times in Pandas<a class="headerlink" href="#dates-and-times-in-pandas" title="Permalink to this headline">¶</a></h2>
+<p>Pandas builds upon <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="docutils literal notranslate"><span class="pre">dateutils</span></code>, and <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> to provide objects such as <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> that takes the best part of each:</p>
+<p>The flexibility and ease of use of native <code class="docutils literal notranslate"><span class="pre">python3</span></code> packages, and the efficient storage and vectorized interface of <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;11 of August, 2020&#39;</span><span class="p">)</span>
+<span class="n">date</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2020-08-11 00:00:00&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Tuesday&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 

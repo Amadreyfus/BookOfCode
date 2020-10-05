@@ -1,17 +1,5 @@
 {
   "content/gluecode": {
-    "t_ratio": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "t_ratio",
-          "mime_prefix": ""
-        }
-      },
-      "data": {
-        "text/plain": "961.6521467259662"
-      }
-    },
     "t_insert": {
       "output_type": "display_data",
       "metadata": {
@@ -46,6 +34,18 @@
       },
       "data": {
         "text/plain": "<TimeitResult : 42.3 ns \u00b1 10.6 ns per loop (mean \u00b1 std. dev. of 100 runs, 3000 loops each)>"
+      }
+    },
+    "t_ratio": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "t_ratio",
+          "mime_prefix": ""
+        }
+      },
+      "data": {
+        "text/plain": "961.6521467259662"
       }
     }
   }
