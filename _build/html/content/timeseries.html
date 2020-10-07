@@ -268,6 +268,50 @@
   <a class="reference internal nav-link" href="#dates-and-times-in-pandas">
    Dates and Times in Pandas
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexing-by-timestamp">
+     Indexing by Timestamp
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-data-structures-in-pandas">
+     Time Data Structures in Pandas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-that-allow-for-creation-of-date-sequences">
+     Functions that allow for creation of Date Sequences
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frequency-codes">
+     Frequency Codes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#conventional-time">
+       Conventional Time
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#business-time">
+       Business Time
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#other-modifications-to-ranges-periods">
+       Other Modifications to Ranges/Periods
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#offsets">
+       Offsets
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -302,7 +346,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>datetime.now() : 2020-10-05 09:53:22.779887
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>datetime.now() : 2020-10-06 10:48:06.614403
 datetime.now().year : 2020
 </pre></div>
 </div>
@@ -341,7 +385,7 @@ datetime.now().year : 2020
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2020-10-05 09:53:22.795268
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2020-10-06 10:48:06.631225
 </pre></div>
 </div>
 </div>
@@ -489,6 +533,189 @@ of dtype in numpy arrays</p>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Tuesday&#39;
 </pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="s2">&quot;D&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2020-08-11&#39;, &#39;2020-08-12&#39;, &#39;2020-08-13&#39;, &#39;2020-08-14&#39;,
+               &#39;2020-08-15&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="indexing-by-timestamp">
+<span id="timeindex"></span><h3>Indexing by Timestamp<a class="headerlink" href="#indexing-by-timestamp" title="Permalink to this headline">¶</a></h3>
+<p>The power of datetime in pandas becomes apparent when we begin to index by timestamp allowing us to parse data easily w.r.t. time.</p>
+<p>We do this by constructing an a DatetimeIndex and using that as our index for our series/df. We can accomplish this explicitly by passing an array of properly formatted
+timestamps to <code class="docutils literal notranslate"><span class="pre">pd.DatetimeIndex()</span></code> or using pandas excellent <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">([</span><span class="s1">&#39;2020-08-11&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-08-12&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-08-13&#39;</span><span class="p">])</span>
+<span class="n">index1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2020-08-11&#39;, &#39;2020-08-12&#39;, &#39;2020-08-13&#39;], dtype=&#39;datetime64[ns]&#39;, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;August 11th, 2020&#39;</span><span class="p">,</span> <span class="s1">&#39;August 12th, 2020&#39;</span><span class="p">,</span> <span class="s1">&#39;August 13th, 2020&#39;</span><span class="p">]</span>
+<span class="n">index2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
+<span class="n">index2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2020-08-11&#39;, &#39;2020-08-12&#39;, &#39;2020-08-13&#39;], dtype=&#39;datetime64[ns]&#39;, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="time-data-structures-in-pandas">
+<span id="datastructures"></span><h3>Time Data Structures in Pandas<a class="headerlink" href="#time-data-structures-in-pandas" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Timestamp</span></code>: essentially a replacement for native python <code class="docutils literal notranslate"><span class="pre">datetime</span></code> based on more efficient <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> datatype</p>
+<p><code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> : Index data structure associated with <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></p>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">Period</span></code>: A fixed-frequency interval into which <code class="docutils literal notranslate"><span class="pre">Timestamps</span></code> either fall or do not.</p>
+<p><code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code>: Associated Index data structure/</p>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>: a duration, small amount of elapsed time from some reference.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TimedeltaIndex</span></code>: Associated index data structure.</p>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> and <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> are the fundamental date/time objects in pandas.</p>
+<p>Although they can be invoked directly it is much more common to use the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function, <strong>which can parse a wide variety of formats.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> can be converted to a <code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code> with the <code class="docutils literal notranslate"><span class="pre">pd.to_period()</span></code> function with the addition of the desired
+frequency code (ex. ‘D’).</p>
+</div>
+</div>
+<div class="section" id="functions-that-allow-for-creation-of-date-sequences">
+<span id="dateseq"></span><h3>Functions that allow for creation of Date Sequences<a class="headerlink" href="#functions-that-allow-for-creation-of-date-sequences" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pd.date_range()</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">pd.period_range()</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">pd.timedelta_range()</span></code></p>
+<p>Like the native python <code class="docutils literal notranslate"><span class="pre">range()</span></code> function these calls allow for specification of start, stop and step/frequency to create a sequence of date/time objects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-08-11&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-08-17&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2020-08-11&#39;, &#39;2020-08-12&#39;, &#39;2020-08-13&#39;, &#39;2020-08-14&#39;,
+               &#39;2020-08-15&#39;, &#39;2020-08-16&#39;, &#39;2020-08-17&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-08-11&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2020-08-11&#39;, &#39;2020-08-12&#39;, &#39;2020-08-13&#39;, &#39;2020-08-14&#39;,
+               &#39;2020-08-15&#39;, &#39;2020-08-16&#39;, &#39;2020-08-17&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">period_range</span><span class="p">(</span><span class="s1">&#39;2020-01&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;M&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>PeriodIndex([&#39;2020-01&#39;, &#39;2020-02&#39;, &#39;2020-03&#39;, &#39;2020-04&#39;, &#39;2020-05&#39;, &#39;2020-06&#39;], dtype=&#39;period[M]&#39;, freq=&#39;M&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">timedelta_range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>TimedeltaIndex([&#39;00:00:00&#39;, &#39;01:00:00&#39;, &#39;02:00:00&#39;, &#39;03:00:00&#39;, &#39;04:00:00&#39;,
+                &#39;05:00:00&#39;, &#39;06:00:00&#39;, &#39;07:00:00&#39;, &#39;08:00:00&#39;, &#39;09:00:00&#39;],
+               dtype=&#39;timedelta64[ns]&#39;, freq=&#39;H&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="frequency-codes">
+<span id="freqcodes"></span><h3>Frequency Codes<a class="headerlink" href="#frequency-codes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="conventional-time">
+<h4>Conventional Time<a class="headerlink" href="#conventional-time" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">D</span></code> : Calendar Day<br />
+<code class="docutils literal notranslate"><span class="pre">W</span></code> : Weekly<br />
+<code class="docutils literal notranslate"><span class="pre">M</span></code> : Month End<br />
+<code class="docutils literal notranslate"><span class="pre">A</span></code> : Year End<br />
+<code class="docutils literal notranslate"><span class="pre">H</span></code> : Hourly<br />
+<code class="docutils literal notranslate"><span class="pre">T</span></code> : Minutes<br />
+<code class="docutils literal notranslate"><span class="pre">S</span></code> : Seconds<br />
+<code class="docutils literal notranslate"><span class="pre">L</span></code> : Milliseconds<br />
+<code class="docutils literal notranslate"><span class="pre">U</span></code> : Microseconds<br />
+<code class="docutils literal notranslate"><span class="pre">N</span></code> : Nanoseconds</p>
+</div>
+<div class="section" id="business-time">
+<h4>Business Time<a class="headerlink" href="#business-time" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">B</span></code> : Business Day<br />
+<code class="docutils literal notranslate"><span class="pre">BM</span></code> : Business Month End<br />
+<code class="docutils literal notranslate"><span class="pre">BQ</span></code> : Business Quarter End<br />
+<code class="docutils literal notranslate"><span class="pre">BA</span></code> : Business Year End</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Adding <code class="docutils literal notranslate"><span class="pre">S</span></code> to any monthly, quarterly or annual period will change the marker from the end of the period to the beginning.</p>
+<p>ex. <code class="docutils literal notranslate"><span class="pre">MS</span></code> or <code class="docutils literal notranslate"><span class="pre">BMS</span></code></p>
+</div>
+</div>
+<div class="section" id="other-modifications-to-ranges-periods">
+<h4>Other Modifications to Ranges/Periods<a class="headerlink" href="#other-modifications-to-ranges-periods" title="Permalink to this headline">¶</a></h4>
+<p>In addition to changing the start or ending of a period as a split point you have other flexibility.</p>
+<p>You can change the month used to mark any quarterly or annual code by adding a 3-letter suffix code to the original:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Q-JAN</span></code>, <code class="docutils literal notranslate"><span class="pre">BQS-APR</span></code>, <code class="docutils literal notranslate"><span class="pre">A-FEB</span></code>, <code class="docutils literal notranslate"><span class="pre">BAS-APR</span></code></p>
+<p>You can also modify the split points of other periods such as week:</p>
+<p><code class="docutils literal notranslate"><span class="pre">W-SUN</span></code>, <code class="docutils literal notranslate"><span class="pre">W-TUE</span></code></p>
+</div>
+<div class="section" id="offsets">
+<span id="id1"></span><h4>Offsets<a class="headerlink" href="#offsets" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components">pandas offset documentation</a></p>
+<p>Pandas allows us to specify offsets which help select dates in a range based on some criterion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.tseries.offsets</span> <span class="kn">import</span> <span class="n">BDay</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-10-04&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">BDay</span><span class="p">())</span> <span class="c1"># selects the next 5 business days on or after intial date</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2020-10-05&#39;, &#39;2020-10-06&#39;, &#39;2020-10-07&#39;, &#39;2020-10-08&#39;,
+               &#39;2020-10-09&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;B&#39;)
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>

@@ -130,3 +130,118 @@ date
 
 date.strftime("%A")
 
+date + pd.to_timedelta(np.arange(5), "D")
+
+(timeindex)=
+### Indexing by Timestamp
+
+The power of datetime in pandas becomes apparent when we begin to index by timestamp allowing us to parse data easily w.r.t. time.  
+
+We do this by constructing an a DatetimeIndex and using that as our index for our series/df. We can accomplish this explicitly by passing an array of properly formatted
+timestamps to `pd.DatetimeIndex()` or using pandas excellent `pd.to_datetime()` function:
+
+index1 = pd.DatetimeIndex(['2020-08-11', '2020-08-12', '2020-08-13'])
+index1
+
+dates = ['August 11th, 2020', 'August 12th, 2020', 'August 13th, 2020']
+index2 = pd.to_datetime(dates)
+index2
+
+(datastructures)=
+### Time Data Structures in Pandas
+
+`Timestamp`: essentially a replacement for native python `datetime` based on more efficient `datetime64` datatype  
+
+`DatetimeIndex` : Index data structure associated with `Timestamp`
+
+---
+
+`Period`: A fixed-frequency interval into which `Timestamps` either fall or do not.  
+
+`PeriodIndex`: Associated Index data structure/
+
+---
+
+`Timedelta`: a duration, small amount of elapsed time from some reference.  
+
+`TimedeltaIndex`: Associated index data structure.
+
+---
+
+`Timestamp` and `DatetimeIndex` are the fundamental date/time objects in pandas.  
+
+Although they can be invoked directly it is much more common to use the `pd.to_datetime()` function, **which can parse a wide variety of formats.**
+
+```{note}
+Any `DatetimeIndex` can be converted to a `PeriodIndex` with the `pd.to_period()` function with the addition of the desired
+frequency code (ex. 'D').
+```
+
+(dateseq)=
+### Functions that allow for creation of Date Sequences
+
+`pd.date_range()`  
+`pd.period_range()`  
+`pd.timedelta_range()`
+
+Like the native python `range()` function these calls allow for specification of start, stop and step/frequency to create a sequence of date/time objects.
+
+pd.date_range('2020-08-11', '2020-08-17')
+
+pd.date_range('2020-08-11', periods=7, freq="D")
+
+pd.period_range('2020-01', periods=6, freq="M")
+
+pd.timedelta_range(0, periods=10, freq='H')
+
+(freqcodes)=
+### Frequency Codes
+
+#### Conventional Time
+
+`D` : Calendar Day  
+`W` : Weekly  
+`M` : Month End  
+`A` : Year End  
+`H` : Hourly  
+`T` : Minutes  
+`S` : Seconds  
+`L` : Milliseconds  
+`U` : Microseconds  
+`N` : Nanoseconds  
+
+#### Business Time
+
+`B` : Business Day  
+`BM` : Business Month End  
+`BQ` : Business Quarter End  
+`BA` : Business Year End 
+
+```{important}
+Adding `S` to any monthly, quarterly or annual period will change the marker from the end of the period to the beginning.
+
+ex. `MS` or `BMS`
+```
+
+#### Other Modifications to Ranges/Periods
+
+In addition to changing the start or ending of a period as a split point you have other flexibility.  
+
+You can change the month used to mark any quarterly or annual code by adding a 3-letter suffix code to the original:  
+
+`Q-JAN`, `BQS-APR`, `A-FEB`, `BAS-APR`  
+
+You can also modify the split points of other periods such as week:  
+
+`W-SUN`, `W-TUE`
+
+(offsets)=
+#### Offsets
+
+[pandas offset documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components)
+
+Pandas allows us to specify offsets which help select dates in a range based on some criterion.
+
+from pandas.tseries.offsets import BDay
+pd.date_range('2020-10-04', periods=5, freq=BDay()) # selects the next 5 business days on or after intial date
+
