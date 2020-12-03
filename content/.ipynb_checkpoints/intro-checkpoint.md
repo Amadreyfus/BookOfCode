@@ -5,7 +5,7 @@
 This book is primarily meant as a reference for myself in order to collect and
 organize the useful coding syntax I am constantly forgetting across all
 of the different languages I encounter.
-
+s
 Essentially, it is a collection of cheat sheets that takes advantage of the
 functionality of Jupyter Book in order to create a comprehensive
 and easy to manage repository of commands and syntax with explanations.
@@ -31,6 +31,8 @@ instructions can be found at [https://beta.jupyterbook.org/intro.html][jb].
 - {ref}` Myst Markdown <MyST>`
 - {ref}` Git Commands <git>`
 - {ref}` Python 3 <python>`
+- {ref}`commonpandas`
+- {ref}`tricks`
 - {ref}` Magic Commands in IPython <magic>`
 - {ref}`time`
 - {ref}`arcpy`

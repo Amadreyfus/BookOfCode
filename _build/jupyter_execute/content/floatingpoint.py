@@ -121,3 +121,10 @@ minors = np.array(bin_values)
 ax.xaxis.set_minor_locator(ticker.FixedLocator(minors))
 ax.text(0.0, 0.2, "Binary Numbers on Real Number Line", fontsize=10,
         transform=ax.transAxes)
+
+```{math}
+\begin{align*}
+dS/dt &= -\beta SI \\
+dI/dt &= \beta SI - \gamma I \\
+dR/dt &= \gamma I
+\end{align*}

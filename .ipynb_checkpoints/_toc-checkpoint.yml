@@ -2,7 +2,11 @@
 - file: content/buildingbook
 - file: content/myst
 - file: content/git
+- file: content/R
 - file: content/python
+- file: content/pandas
+- file: content/matplotlib
+- file: content/tricks
 - file: content/magic
 - file: content/timeseries
 - file: content/arcpy

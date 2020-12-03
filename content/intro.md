@@ -31,6 +31,8 @@ instructions can be found at [https://beta.jupyterbook.org/intro.html][jb].
 - {ref}` Myst Markdown <MyST>`
 - {ref}` Git Commands <git>`
 - {ref}` Python 3 <python>`
+- {ref}`commonpandas`
+- {ref}`tricks`
 - {ref}` Magic Commands in IPython <magic>`
 - {ref}`time`
 - {ref}`arcpy`
