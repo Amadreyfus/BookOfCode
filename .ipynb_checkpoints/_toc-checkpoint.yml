@@ -2,7 +2,7 @@
 - file: content/buildingbook
 - file: content/myst
 - file: content/git
-- file: content/R
+- file: content/conda
 - file: content/python
 - file: content/pandas
 - file: content/matplotlib
